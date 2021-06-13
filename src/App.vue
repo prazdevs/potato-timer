@@ -21,9 +21,11 @@ onMounted(() => locale.value = language.value)
 </script>
 
 <template>
-  <n-config-provider :theme="isDark ? darkTheme : undefined">
-    <router-view />
-  </n-config-provider>
+  <client-only>
+    <n-config-provider :theme="isDark ? darkTheme : undefined">
+      <router-view />
+    </n-config-provider>
+  </client-only>
 </template>
 
 <style>

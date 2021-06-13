@@ -6,9 +6,9 @@ function usePotato() {
     = usePersistentStopwatch('potato')
 
   // TODO change to minutes + configurable ?
-  const workTime = ref(25)
-  const pauseTime = ref(5)
-  const longPause = ref(15)
+  const workTime = ref(25 * 60)
+  const pauseTime = ref(5 * 60)
+  const longPause = ref(15 * 60)
 
   const elapsedSeconds = computed(() => Math.floor(elapsed.value / 1000))
 
