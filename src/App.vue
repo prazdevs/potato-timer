@@ -23,6 +23,7 @@ onMounted(() => locale.value = language.value)
 <template>
   <client-only>
     <n-config-provider :theme="isDark ? darkTheme : undefined">
+      <n-global-style />
       <router-view />
     </n-config-provider>
   </client-only>

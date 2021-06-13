@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 </script>
 <template>
-  <n-layout style="height: 100vh">
+  <div style="height: 100vh">
     <n-space vertical align="center">
       <div class="header">
         POTATO TIMER
@@ -20,7 +20,7 @@ const { t } = useI18n()
         </n-space>
       </div>
     </n-space>
-  </n-layout>
+  </div>
 </template>
 
 <style>
