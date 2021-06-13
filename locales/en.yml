@@ -1,6 +1,7 @@
 common:
-  pause: pause
-  resume: resume
+  pause: Pause
+  resume: Resume
+  reset: Reset
   warning: Warning
   incompatibility: Incompatibility
 not-found: Not found

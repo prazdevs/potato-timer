@@ -1,9 +1,14 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import { useI18n } from 'vue-i18n'
 
 const { availableLocales, locale, t } = useI18n()
 const language = useLocalStorage('language', 'en')
+
+const label = computed(() => t(
+  'options.change-language',
+  { current: language.value.toUpperCase() }))
 
 const changeLocale = () => {
   language.value = availableLocales[(availableLocales.indexOf(language.value) + 1) % availableLocales.length]
@@ -14,7 +19,7 @@ const changeLocale = () => {
 <template>
   <n-tooltip :delay="500">
     <template #trigger>
-      <n-button circle @click="changeLocale">
+      <n-button circle :aria-label="label" @click="changeLocale">
         <template #icon>
           <n-icon>
             <carbon-translate />
@@ -22,8 +27,6 @@ const changeLocale = () => {
         </template>
       </n-button>
     </template>
-    <span>
-      {{ t('options.change-language', { current: language.toUpperCase() }) }}
-    </span>
+    <span>{{ label }}</span>
   </n-tooltip>
 </template>

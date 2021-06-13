@@ -26,15 +26,27 @@ useNotifier(currentStep)
       :remaining="currentRemaining"
     />
     <n-space>
-      <n-button circle size="large" :disabled="currentStep === 'done'" @click="toggle">
+      <n-button
+        circle
+        size="large"
+        :aria-label="running ? t('common.pause') : t('common.resume')"
+        :disabled="currentStep === 'done'"
+        @click="toggle"
+      >
         <template #icon>
-          <n-icon :alt="running ? t('common.pause') : t('common.resume')">
+          <n-icon>
             <carbon-pause v-if="running" />
             <carbon-play v-else />
           </n-icon>
         </template>
       </n-button>
-      <n-button circle size="large" :disabled="running" @click="reset">
+      <n-button
+        circle
+        size="large"
+        :aria-label="t('common.reset')"
+        :disabled="running"
+        @click="reset"
+      >
         <template #icon>
           <n-icon>
             <carbon-reset />

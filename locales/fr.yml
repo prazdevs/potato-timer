@@ -1,6 +1,7 @@
 common:
-  pause: pause
-  resume: resume
+  pause: Mettre en pause
+  resume: Continuer
+  reset: Réinitialiser
   warning: Attention
   incompatibility: Incompatibilité
 not-found: Page non trouvée

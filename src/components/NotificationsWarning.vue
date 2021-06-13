@@ -20,7 +20,7 @@ function requestPermission() {
   <n-alert v-if="apiUnavailable" type="info" :title="t('common.incompatibility')">
     <template #icon>
       <n-icon>
-        <img style="width:30px;" :src="potatoCry" />
+        <img alt="" style="width:30px;" :src="potatoCry" />
       </n-icon>
     </template>
     <n-space vertical align="center">
@@ -32,7 +32,7 @@ function requestPermission() {
   <n-alert v-else-if="notificationAccess !== 'granted'" type="warning" :title="t('common.warning')">
     <template #icon>
       <n-icon>
-        <img style="width:30px;" :src="potatoNotif" />
+        <img alt="" style="width:30px;" :src="potatoNotif" />
       </n-icon>
     </template>
     <n-space vertical align="center">

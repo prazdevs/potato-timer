@@ -42,7 +42,7 @@ const remainingTime = computed(() => format(props.remaining * 1000, 'm:ss'))
       :percentage="percentage"
     >
       <div>
-        <img style="width: 128px;" :src="potatoImage" />
+        <img alt="" style="width: 128px;" :src="potatoImage" />
         <div class="remaining-time">
           {{ remainingTime }}
         </div>
