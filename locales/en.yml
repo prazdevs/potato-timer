@@ -1,0 +1,22 @@
+common:
+  pause: pause
+  resume: resume
+  warning: Warning
+  incompatibility: Incompatibility
+not-found: Not found
+notification:
+  request-permission: Allow notifications
+  permission-warning: You didn't allow the app to send you notifications. You may miss the moment to take a break !
+  api-unavailable: Your device or browser is not compatible with notifications. You will not receive any when it's time to take a break or get back to work.
+steps:
+  ready: Ready to start ?
+  work: Let's get to work !
+  pause: Time to chill...
+  done: We're done !
+options:
+  title: Options
+  change-language: Change language — {current}
+  change-theme: Change theme — {current}
+theme:
+  dark: Dark
+  light: Light
