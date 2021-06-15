@@ -3,7 +3,7 @@ import { computed, ref, watch } from 'vue'
 
 function usePotato() {
   const { elapsed, pause, resume, reset, running }
-    = usePersistentStopwatch('potato')
+    = usePersistentStopwatch('potato', { interval: 1 })
 
   // TODO change to minutes + configurable ?
   const workTime = ref(25 * 60)
