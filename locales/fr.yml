@@ -12,8 +12,13 @@ footer:
   robynn: Robynn Frauhn
 not-found: Page non trouvée
 notification:
-  api-unavailable: Ton appareil ou navigateur est incompatible avec les notifications. Tu n'en recevras pas quand il sera l'heure de prendre une pause ou de se remettre au travail.
-  permission-warning: Tu n'as pas autorisé l'application à t'envoyer des notifications. Tu risques de ne pas t'apercevoir que c'est le moment de faire une pause !
+  api-unavailable: >-
+    Ton appareil ou navigateur est incompatible avec les notifications. Tu n'en
+    recevras pas quand il sera l'heure de prendre une pause ou de se remettre au
+    travail.
+  permission-warning: >-
+    Tu n'as pas autorisé l'application à t'envoyer des notifications. Tu risques
+    de ne pas t'apercevoir que c'est le moment de faire une pause !
   request-permission: Autoriser les notifications
 options:
   change-language: Changer de langue — {current}
@@ -28,6 +33,11 @@ steps:
   pause: On se détend...
   ready: Prêt·e ?
   work: Au travail !
+task:
+  delete: Supprimer la tâche
+tasks:
+  add: Ajouter une tâche
+  empty: Ajoute tes tâches à effectuer.
 theme:
   dark: Sombre
   light: Clair

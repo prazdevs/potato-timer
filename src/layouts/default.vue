@@ -11,13 +11,7 @@ const { t } = useI18n()
     <div>
       <router-view></router-view>
     </div>
-    <div class="options">
-      <span class="options-title">{{ t('options.title') }}</span>
-      <n-space class="options-buttons">
-        <language-selector></language-selector>
-        <theme-selector></theme-selector>
-      </n-space>
-    </div>
+    <option-controls />
     <div class="footer">
       <i18n-t keypath="footer.credits" tag="div">
         <template #robynn>
@@ -68,20 +62,7 @@ const { t } = useI18n()
     font-size: 3rem;
     margin-bottom: 20px;
     text-align: center;
-    margin-top: 0;
-  }
-
-  .options {
-    margin-top: 25px;
-
-    .options-title {
-      font-size: 1.5rem;
-    }
-
-    .options-buttons {
-      margin-top: 5px !important;
-      justify-content: center !important;
-    }
+    margin: 0;
   }
 
   .footer {
