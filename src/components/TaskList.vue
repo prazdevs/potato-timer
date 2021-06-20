@@ -44,17 +44,18 @@ function addTask() {
         </n-list-item>
       </n-list>
       <template #action>
-        <label>
-          <span class="sr-only">{{ t('tasks.add') }}</span>
-        </label>
         <n-input-group>
-          <n-input
-            id="add-task"
-            v-model:value="newTask"
-            round
-            placeholder
-            @keypress.enter="addTask"
-          />
+          <label>
+            <span class="sr-only">{{ t('tasks.add') }}</span>
+            <n-input
+              id="add-task"
+              v-model:value="newTask"
+              :style="{width: '250px'}"
+              round
+              placeholder
+              @keypress.enter="addTask"
+            />
+          </label>
           <n-button circle :aria-label="t('task.delete')" @click="addTask">
             <template #icon>
               <n-icon>
