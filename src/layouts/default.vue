@@ -19,37 +19,40 @@ const { t } = useI18n()
       </n-space>
     </div>
     <div class="footer">
-      <div>
-        {{ t('footer.credits') }}
-        <n-element
-          tag="a"
-          href="https://twitter.com/RFrauhn"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          Robynn Frauhn
-        </n-element>
-        &
-        <n-element
-          tag="a"
-          href="https://twitter.com/hels_draws"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          HelS
-        </n-element>
-      </div>
-      <div>
-        {{ t('footer.made') }}
-        <n-element
-          tag="a"
-          href="https://github.com/prazdevs"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          PraZ
-        </n-element>
-      </div>
+      <i18n-t keypath="footer.credits" tag="div">
+        <template #robynn>
+          <n-element
+            tag="a"
+            href="https://twitter.com/RFrauhn"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            {{ t('footer.robynn') }}
+          </n-element>
+        </template>
+        <template #hels>
+          <n-element
+            tag="a"
+            href="https://twitter.com/hels_draws"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            {{ t('footer.hels') }}
+          </n-element>
+        </template>
+      </i18n-t>
+      <i18n-t keypath="footer.made" tag="div">
+        <template #praz>
+          <n-element
+            tag="a"
+            href="https://github.com/prazdevs"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            {{ t('footer.praz') }}
+          </n-element>
+        </template>
+      </i18n-t>
     </div>
   </div>
 </template>
@@ -65,6 +68,7 @@ const { t } = useI18n()
     font-size: 3rem;
     margin-bottom: 20px;
     text-align: center;
+    margin-top: 0;
   }
 
   .options {

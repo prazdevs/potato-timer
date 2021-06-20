@@ -23,8 +23,11 @@ options:
   change-language: Change language — {current}
   change-theme: Change theme — {current}
 footer:
-  made: Made with ❤️ by 
-  credits: Potato credits to
+  made: Made with ❤️ by {praz}
+  credits: Potato credits to {robynn} and {hels}
+  robynn: Robynn Frauhn
+  hels: HelS
+  praz: PraZ
 theme:
   dark: Dark
   light: Light

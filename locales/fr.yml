@@ -5,8 +5,11 @@ common:
   resume: Continuer
   warning: Attention
 footer:
-  credits: Crédits patates à
-  made: Fait avec ❤️ par
+  credits: Crédits patates à {robynn} et {hels}
+  made: Fait avec ❤️ par {praz}
+  robynn: Robynn Frauhn
+  hels: HelS
+  praz: PraZ
 not-found: Page non trouvée
 notification:
   api-unavailable: >-
