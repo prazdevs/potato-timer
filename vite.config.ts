@@ -43,8 +43,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Vitesse',
-        short_name: 'Vitesse',
+        name: 'Potato Timer',
+        short_name: 'Potato Timer',
         theme_color: '#ffffff',
         icons: [
           {
