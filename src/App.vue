@@ -10,7 +10,7 @@ import { isDark } from '~/logic'
 useHead({
   title: 'Potato Timer 🥔',
   meta: [
-    { name: 'description', content: 'Opinionated Vite Starter Template' },
+    { name: 'description', content: 'A pomodoro timer, but with potatoes. Because potatoes are cool.' },
   ],
 })
 
