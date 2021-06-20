@@ -45,8 +45,9 @@ function usePotato() {
         : currentIndex.value % 2 === 0
           ? 'work'
           : 'pause',
-
   )
+
+  const potatoRunning = computed(() => running.value && ['work', 'pause'].includes(currentStep.value))
 
   const currentDuration = computed(() =>
     currentIndex.value < 0
@@ -74,7 +75,7 @@ function usePotato() {
   })
 
   return {
-    running,
+    running: potatoRunning,
     reset,
     currentStep,
     currentDuration,
