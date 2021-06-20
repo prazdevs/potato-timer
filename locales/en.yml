@@ -4,6 +4,10 @@ common:
   reset: Reset
   warning: Warning
   incompatibility: Incompatibility
+reset:
+  message: There is a potato running, are you sure you want to reset?
+  confirm: Reset
+  cancel: Cancel
 not-found: Not found
 notification:
   request-permission: Allow notifications
@@ -18,6 +22,9 @@ options:
   title: Options
   change-language: Change language — {current}
   change-theme: Change theme — {current}
+footer:
+  made: Made with ❤️ by 
+  credits: Potato credits to
 theme:
   dark: Dark
   light: Light

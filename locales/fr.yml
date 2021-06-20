@@ -1,23 +1,35 @@
 common:
-  pause: Mettre en pause
-  resume: Continuer
-  reset: Réinitialiser
-  warning: Attention
   incompatibility: Incompatibilité
+  pause: Mettre en pause
+  reset: Réinitialiser
+  resume: Continuer
+  warning: Attention
+footer:
+  credits: Crédits patates à
+  made: Fait avec ❤️ par
 not-found: Page non trouvée
 notification:
+  api-unavailable: >-
+    Ton appareil ou navigateur est incompatible avec les notifications. Tu n'en
+    recevras pas quand il sera l'heure de prendre une pause ou de se remettre au
+    travail.
+  permission-warning: >-
+    Tu n'as pas autorisé l'application à t'envoyer des notifications. Tu risques
+    de ne pas t'apercevoir que c'est le moment de faire une pause !
   request-permission: Autoriser les notifications
-  permission-warning: Tu n'as pas autorisé l'application à t'envoyer des notifications. Tu risques de ne pas t'apercevoir que c'est le moment de faire une pause !
-  api-unavailable: Ton appareil ou navigateur est incompatible avec les notifications. Tu n'en recevras pas quand il sera l'heure de prendre une pause ou de se remettre au travail.
+options:
+  change-language: Changer de langue — {current}
+  change-theme: Changer le theme — {current}
+  title: Options
+reset:
+  cancel: Annuler
+  confirm: Réinitialiser
+  message: Il y a une patate en cours, es-tu sûr·e de vouloir réinitialiser ?
 steps:
   done: Terminé !
   pause: On se détend...
   ready: Prêt·e ?
   work: Au travail !
-options:
-  title: Options
-  change-language: Changer de langue — {current}
-  change-theme: Changer le theme — {current}
 theme:
   dark: Sombre
   light: Clair
