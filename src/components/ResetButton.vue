@@ -40,6 +40,7 @@ const reset = () => {
         size="large"
         :aria-label="t('common.reset')"
         :disabled="props.disabled"
+        :style="{ marginLeft: '12px' }"
         @click="click"
       >
         <template #icon>

@@ -27,6 +27,14 @@ reset:
   cancel: Cancel
   confirm: Reset
   message: There is a potato running, are you sure you want to reset?
+settings:
+  title: Settings
+  cancel: Cancel
+  save: Save
+  pause-time: Pause potato duration (minutes)
+  work-time: Work potato duration (minutes) 
+  long-pause: Final pause duration (minutes)
+  reset: Restore default durations
 steps:
   done: We're done !
   pause: Time to chill...

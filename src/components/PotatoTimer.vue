@@ -43,6 +43,7 @@ useNotifier(currentStep)
       :confirm="(currentStep === 'work') || (currentStep === 'pause')"
       @click="reset"
     />
+    <potato-settings :disabled="currentStep !== 'ready'" />
   </div>
 </template>
 
@@ -51,9 +52,5 @@ useNotifier(currentStep)
   display: flex;
   justify-content: center !important;
   margin-top: 10px;
-
-  *:not(:last-child) {
-    margin-right: 12px;
-  }
 }
 </style>

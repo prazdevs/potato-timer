@@ -28,6 +28,14 @@ reset:
   cancel: Annuler
   confirm: Réinitialiser
   message: Il y a une patate en cours, es-tu sûr·e de vouloir réinitialiser ?
+settings:
+  title: Réglages
+  cancel: Annuler
+  save: Sauvegarder
+  pause-time: Durée d'une patate pause (minutes)
+  work-time: Durée d'une patate travail (minutes) 
+  long-pause: Durée de la pause finale (minutes)
+  reset: Rétablir les durées par défaut
 steps:
   done: Terminé !
   pause: On se détend...
