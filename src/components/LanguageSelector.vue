@@ -17,16 +17,11 @@ const changeLocale = () => {
 </script>
 
 <template>
-  <n-tooltip :delay="500">
-    <template #trigger>
-      <n-button circle :aria-label="label" @click="changeLocale">
-        <template #icon>
-          <n-icon>
-            <carbon-translate />
-          </n-icon>
-        </template>
-      </n-button>
+  <n-button circle :aria-label="label" @click="changeLocale">
+    <template #icon>
+      <n-icon>
+        <carbon-translate />
+      </n-icon>
     </template>
-    <span>{{ label }}</span>
-  </n-tooltip>
+  </n-button>
 </template>

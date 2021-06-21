@@ -12,17 +12,12 @@ const label = computed(() => t(
 </script>
 
 <template>
-  <n-tooltip :delay="500">
-    <template #trigger>
-      <n-button circle :aria-label="label" @click="toggleDark">
-        <template #icon>
-          <n-icon>
-            <carbon-moon v-if="isDark" />
-            <carbon-sun v-else />
-          </n-icon>
-        </template>
-      </n-button>
+  <n-button circle :aria-label="label" @click="toggleDark">
+    <template #icon>
+      <n-icon>
+        <carbon-moon v-if="isDark" />
+        <carbon-sun v-else />
+      </n-icon>
     </template>
-    <span>{{ label }}</span>
-  </n-tooltip>
+  </n-button>
 </template>
