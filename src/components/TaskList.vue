@@ -13,6 +13,8 @@ const taskStyle = (task: Task) => ({
   maxWidth: '200px',
   textDecoration: task.done ? 'line-through' : 'none',
   fontStyle: task.done ? 'italic' : 'normal',
+  fontSize: '1rem',
+  height: '18px',
 })
 
 function addTask() {
@@ -25,7 +27,7 @@ function addTask() {
   <div class="tasks">
     <n-card class="tasks-list" size="small" :style="{ width: '320px' }">
       <n-empty v-if="!tasks.length" :description="t('tasks.empty')" />
-      <n-list v-else>
+      <n-list v-else :style="{ margin: 0 }">
         <n-list-item v-for="(task, idx) in tasks" :key="idx">
           <n-checkbox v-model:checked="task.done">
             <n-ellipsis :style="taskStyle(task)">
