@@ -39,7 +39,7 @@ useNotifier(currentStep)
       </template>
     </n-button>
     <reset-button
-      :disabled="running"
+      :disabled="running || currentStep === 'ready'"
       :confirm="(currentStep === 'work') || (currentStep === 'pause')"
       @click="reset"
     />
