@@ -29,7 +29,6 @@ const potatoImage = computed(() => {
 })
 
 const remainingTime = computed(() => format(props.remaining * 1000, 'm:ss'))
-
 </script>
 
 <template>

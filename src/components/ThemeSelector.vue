@@ -8,7 +8,8 @@ const { t } = useI18n()
 
 const label = computed(() => t(
   'options.change-theme',
-  { current: isDark ? t('theme.dark') : t('theme.light') }))
+  { current: isDark.value ? t('theme.dark') : t('theme.light') }),
+)
 </script>
 
 <template>

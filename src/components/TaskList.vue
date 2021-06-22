@@ -35,7 +35,14 @@ function addTask() {
             </n-ellipsis>
           </n-checkbox>
           <template #suffix>
-            <n-button circle ghost type="error" size="small" @click="() => tasks.splice(idx, 1)">
+            <n-button
+              :aria-label="t('tasks.delete', { task: task.text })"
+              circle
+              ghost
+              type="error"
+              size="small"
+              @click="() => tasks.splice(idx, 1)"
+            >
               <template #icon>
                 <n-icon>
                   <carbon-delete />
@@ -58,7 +65,7 @@ function addTask() {
               @keypress.enter="addTask"
             />
           </label>
-          <n-button circle :aria-label="t('task.delete')" @click="addTask">
+          <n-button circle :aria-label="t('tasks.add')" @click="addTask">
             <template #icon>
               <n-icon>
                 <carbon-add />

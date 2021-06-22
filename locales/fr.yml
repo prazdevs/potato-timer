@@ -21,8 +21,8 @@ notification:
     de ne pas t'apercevoir que c'est le moment de faire une pause !
   request-permission: Autoriser les notifications
 options:
-  change-language: Changer de langue — {current}
-  change-theme: Changer le theme — {current}
+  change-language: Changer de langue — currently {current}
+  change-theme: Changer le theme — currently {current}
   title: Options
 reset:
   cancel: Annuler
@@ -41,10 +41,9 @@ steps:
   pause: On se détend...
   ready: Prêt·e ?
   work: Au travail !
-task:
-  delete: Supprimer la tâche
 tasks:
   add: Ajouter une tâche
+  delete: Supprimer la tâche "{task}"
   empty: Ajoute tes tâches à effectuer.
 theme:
   dark: Sombre

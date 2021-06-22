@@ -20,8 +20,8 @@ notification:
     to take a break !
   request-permission: Allow notifications
 options:
-  change-language: Change language — {current}
-  change-theme: Change theme — {current}
+  change-language: Change language — actuellement {current}
+  change-theme: Change theme — actuellement {current}
   title: Options
 reset:
   cancel: Cancel
@@ -39,11 +39,10 @@ steps:
   done: We're done !
   pause: Time to chill...
   ready: Ready to start ?
-  work: Let's get to work !
-task:
-  delete: Delete task
+  work: Let's get to work ! 
 tasks:
   add: Add task
+  delete: Delete task "{task}"
   empty: Add tasks you want to work on.
 theme:
   dark: Dark
