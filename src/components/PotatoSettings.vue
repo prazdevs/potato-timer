@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch, defineProps, ref, computed } from 'vue'
+import { watch, defineProps, ref, computed, defineEmit } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import { useI18n } from 'vue-i18n'
 import { FocusTrap } from 'focus-trap-vue'
@@ -13,6 +13,7 @@ import {
 
 import potatoDetect from '~/assets/potatoDetect.png'
 
+const emit = defineEmit(['change-times'])
 const props = defineProps({
   disabled: {
     type: Boolean,
@@ -35,9 +36,11 @@ const show = computed(() => active.value && !props.disabled)
 
 function save() {
   if (workTime.value > 0 && pauseTime.value > 0 && longPause.value > 0) {
-    storedWorkTime.value = workTime.value * 60
-    storedPauseTime.value = pauseTime.value * 60
-    storedLongPause.value = longPause.value * 60
+    emit('change-times', {
+      workTime: workTime.value * 60,
+      pauseTime: pauseTime.value * 60,
+      longPause: longPause.value * 60,
+    })
     active.value = false
   }
 }

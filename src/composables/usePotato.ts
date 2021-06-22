@@ -6,6 +6,12 @@ export const POTATO_WORK_TIME = 'potato-work-time'
 export const POTATO_PAUSE_TIME = 'potato-pause-time'
 export const POTATO_LONG_PAUSE = 'potato-long-pause'
 
+export interface TimeSettings {
+  workTime: number
+  pauseTime: number
+  longPause: number
+}
+
 function usePotato() {
   const { elapsed, pause, resume, reset, running }
     = usePersistentStopwatch('potato', { interval: 1 })
@@ -51,7 +57,9 @@ function usePotato() {
           : 'pause',
   )
 
-  const potatoRunning = computed(() => running.value && ['work', 'pause'].includes(currentStep.value))
+  const potatoRunning = computed(() =>
+    running.value && ['work', 'pause'].includes(currentStep.value),
+  )
 
   const currentDuration = computed(() =>
     currentIndex.value < 0
@@ -74,6 +82,12 @@ function usePotato() {
     else if (currentIndex.value >= 0) resume()
   }
 
+  function changeTimes(settings: TimeSettings) {
+    workTime.value = settings.workTime
+    pauseTime.value = settings.pauseTime
+    longPause.value = settings.longPause
+  }
+
   onMounted(() => {
     if (currentIndex.value < 0) pause()
   })
@@ -90,6 +104,8 @@ function usePotato() {
     currentRemaining,
     currentPercentage,
     toggle,
+    workTime,
+    changeTimes,
   }
 }
 
