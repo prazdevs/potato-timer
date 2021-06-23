@@ -74,7 +74,7 @@ watch(show, (show) => {
     :style="{ marginLeft: '12px' }"
     @click="active = true"
   >
-    <template #icon circle>
+    <template #icon>
       <n-icon>
         <carbon-settings />
       </n-icon>
@@ -88,6 +88,7 @@ watch(show, (show) => {
         fallback-focus="#settings-button"
         @deactivate="active = false"
       >
+        <!-- container div needed for focus-trap -->
         <div>
           <n-card class="modal" size="small" :segmented="{ content: 'hard' }">
             <template #header>
@@ -140,7 +141,6 @@ watch(show, (show) => {
 <style scoped lang="scss">
 .modal {
   max-width: 320px;
-  font-family: Quicksand, sans-serif;
 
   .modal-header {
     display: flex;

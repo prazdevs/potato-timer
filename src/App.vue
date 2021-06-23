@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import { useHead } from '@vueuse/head'
+import type { GlobalThemeOverrides } from 'naive-ui'
 import { darkTheme } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
 
@@ -17,12 +18,18 @@ useHead({
 const language = useLocalStorage('language', 'en')
 const { locale } = useI18n()
 
+const overrides: GlobalThemeOverrides = {
+  common: {
+    fontFamily: 'Quicksand',
+  },
+}
+
 onMounted(() => locale.value = language.value)
 </script>
 
 <template>
   <client-only>
-    <n-config-provider :theme="isDark ? darkTheme : undefined">
+    <n-config-provider :theme="isDark ? darkTheme : undefined" :theme-overrides="overrides">
       <n-global-style />
       <router-view />
     </n-config-provider>
