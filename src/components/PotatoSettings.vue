@@ -84,7 +84,7 @@ watch(show, (show) => {
     <on-click-outside @trigger="active = false">
       <focus-trap
         :value="show"
-        initial-focus="#cancel-button"
+        initial-focus="#work-time-input > div > div > div > input"
         fallback-focus="#settings-button"
         @deactivate="active = false"
       >
@@ -100,7 +100,7 @@ watch(show, (show) => {
               <div class="modal-body">
                 <label class="modal-input">
                   {{ t('settings.work-time') }}
-                  <n-input-number v-model:value="workTime" :step="5" :validator="validator" />
+                  <n-input-number id="work-time-input" v-model:value="workTime" :step="5" :validator="validator" />
                 </label>
                 <label class="modal-input">
                   {{ t('settings.pause-time') }}
