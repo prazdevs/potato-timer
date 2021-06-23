@@ -8,15 +8,19 @@ const { t } = useI18n()
   <div class="options">
     <span class="options-title">{{ t('options.title') }}</span>
     <n-space class="options-buttons">
-      <language-selector></language-selector>
-      <theme-selector></theme-selector>
+      <language-selector />
+      <theme-selector />
     </n-space>
   </div>
 </template>
 
 <style scoped lang="scss">
 .options {
-  margin-top: 25px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   .options-title {
     font-size: 1.5rem;

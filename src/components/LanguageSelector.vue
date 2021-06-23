@@ -17,7 +17,7 @@ const changeLocale = () => {
 </script>
 
 <template>
-  <n-button circle :aria-label="label" @click="changeLocale">
+  <n-button circle :aria-label="label" size="large" @click="changeLocale">
     <template #icon>
       <n-icon>
         <carbon-translate />

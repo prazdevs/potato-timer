@@ -12,7 +12,7 @@ const tasks = useTasks()
 const newTask = ref('')
 
 const taskStyle = (task: Task) => ({
-  maxWidth: '200px',
+  maxWidth: '190px',
   textDecoration: task.done ? 'line-through' : 'none',
   fontStyle: task.done ? 'italic' : 'normal',
   fontSize: '1rem',
@@ -27,7 +27,7 @@ function addTask() {
 
 <template>
   <div class="tasks">
-    <n-card class="tasks-list" size="small" :style="{ width: '320px' }">
+    <n-card class="tasks-list" size="small">
       <div v-if="!tasks.length" class="tasks-empty">
         <img :src="potatoLost" alt="" />
         <n-element tag="span">
@@ -88,10 +88,14 @@ function addTask() {
 </template>
 
 <style scoped lang="scss">
+.n-list-item__suffix {
+  margin-left:0;
+}
 .tasks {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 300px;
 
   .tasks-list {
     margin-top: 5px;

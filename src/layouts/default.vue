@@ -8,11 +8,12 @@ const { t } = useI18n()
     <h1 class="header">
       POTATO TIMER
     </h1>
-    <div>
+    <div class="view">
       <router-view></router-view>
     </div>
-    <option-controls />
+
     <div class="footer">
+      <option-controls />
       <i18n-t keypath="footer.credits" tag="div">
         <template #robynn>
           <n-element
@@ -63,6 +64,11 @@ const { t } = useI18n()
     margin-bottom: 20px;
     text-align: center;
     margin: 0;
+  }
+
+  .view {
+    width: 100%;
+    max-width: 450px;
   }
 
   .footer {

@@ -17,11 +17,18 @@ function requestPermission() {
 </script>
 
 <template>
-  <n-alert v-if="apiUnavailable" type="info" :title="t('common.incompatibility')">
-    <template #icon>
-      <n-icon>
-        <img alt="" style="width:30px;" :src="potatoCry" />
-      </n-icon>
+  <n-alert
+    v-if="apiUnavailable"
+    class="alert-panel"
+    type="info"
+    title
+    :show-icon="false"
+  >
+    <template #header>
+      <div class="alert-header">
+        <img alt="" :src="potatoCry" />
+        <span>{{ t('common.incompatibility') }}</span>
+      </div>
     </template>
     <n-space vertical align="center">
       <div style="max-width: 400px;">
@@ -29,11 +36,18 @@ function requestPermission() {
       </div>
     </n-space>
   </n-alert>
-  <n-alert v-else-if="notificationAccess !== 'granted'" type="warning" :title="t('common.warning')">
-    <template #icon>
-      <n-icon>
-        <img alt="" style="width:30px;" :src="potatoNotif" />
-      </n-icon>
+  <n-alert
+    v-else-if="notificationAccess !== 'granted'"
+    class="alert-panel"
+    type="warning"
+    title
+    :show-icon="false"
+  >
+    <template #header>
+      <div class="alert-header">
+        <img alt="" :src="potatoNotif" />
+        <span>{{ t('common.warning') }}</span>
+      </div>
     </template>
     <n-space vertical align="center">
       <div style="max-width: 400px;">
@@ -45,3 +59,20 @@ function requestPermission() {
     </n-space>
   </n-alert>
 </template>
+
+<style scoped lang="scss">
+.alert-panel {
+  width: 95%;
+
+  .alert-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+
+    img {
+      width: 30px;
+      margin-right: 5px;
+    }
+  }
+}
+</style>
