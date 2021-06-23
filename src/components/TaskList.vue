@@ -93,10 +93,6 @@ function addTask() {
   flex-direction: column;
   align-items: center;
 
-  .tasks-title {
-    font-size: 1.5rem;
-  }
-
   .tasks-list {
     margin-top: 5px;
 
@@ -108,6 +104,7 @@ function addTask() {
 
       img {
         width: 50px;
+        margin-bottom: 5px;
       }
 
       span {
