@@ -43,7 +43,7 @@ steps:
 tasks:
   add: Add task
   delete: Delete task "{task}"
-  empty: Add tasks you want to work on.
+  empty: No task to work on.
 theme:
   dark: Dark
   light: Light

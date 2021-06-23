@@ -44,7 +44,7 @@ steps:
 tasks:
   add: Ajouter une tâche
   delete: Supprimer la tâche "{task}"
-  empty: Ajoute tes tâches à effectuer.
+  empty: Aucune tâche à effectuer.
 theme:
   dark: Sombre
   light: Clair

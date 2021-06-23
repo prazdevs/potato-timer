@@ -4,6 +4,8 @@ import { useI18n } from 'vue-i18n'
 import type { Task } from '~/composables/useTasks'
 import useTasks from '~/composables/useTasks'
 
+import potatoLost from '~/assets/potatoLost.png'
+
 const { t } = useI18n()
 const tasks = useTasks()
 
@@ -26,7 +28,12 @@ function addTask() {
 <template>
   <div class="tasks">
     <n-card class="tasks-list" size="small" :style="{ width: '320px' }">
-      <n-empty v-if="!tasks.length" :description="t('tasks.empty')" />
+      <div v-if="!tasks.length" class="tasks-empty">
+        <img :src="potatoLost" alt="" />
+        <n-element tag="span">
+          {{ t('tasks.empty') }}
+        </n-element>
+      </div>
       <n-list v-else :style="{ margin: 0 }">
         <n-list-item v-for="(task, idx) in tasks" :key="idx">
           <n-checkbox v-model:checked="task.done">
@@ -39,6 +46,7 @@ function addTask() {
               :aria-label="t('tasks.delete', { task: task.text })"
               circle
               ghost
+              text
               type="error"
               size="small"
               @click="() => tasks.splice(idx, 1)"
@@ -53,26 +61,27 @@ function addTask() {
         </n-list-item>
       </n-list>
       <template #action>
-        <n-input-group>
-          <label>
-            <span class="sr-only">{{ t('tasks.add') }}</span>
-            <n-input
-              id="add-task"
-              v-model:value="newTask"
-              :style="{width: '250px'}"
-              round
-              placeholder
-              @keypress.enter="addTask"
-            />
-          </label>
-          <n-button circle :aria-label="t('tasks.add')" @click="addTask">
-            <template #icon>
-              <n-icon>
-                <carbon-add />
-              </n-icon>
-            </template>
-          </n-button>
-        </n-input-group>
+        <div class="tasks-actions">
+          <n-input-group>
+            <label :style="{ width: '100%' }">
+              <span class="sr-only">{{ t('tasks.add') }}</span>
+              <n-input
+                id="add-task"
+                v-model:value="newTask"
+                round
+                placeholder
+                @keypress.enter="addTask"
+              />
+            </label>
+            <n-button circle :aria-label="t('tasks.add')" @click="addTask">
+              <template #icon>
+                <n-icon size="large">
+                  <carbon-add />
+                </n-icon>
+              </template>
+            </n-button>
+          </n-input-group>
+        </div>
       </template>
     </n-card>
   </div>
@@ -91,9 +100,19 @@ function addTask() {
   .tasks-list {
     margin-top: 5px;
 
-    .task-done {
-      text-decoration: line-through;
-      font-style: italic;
+    .tasks-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 50px;
+      }
+
+      span {
+        color: var(--text-color-3)
+      }
     }
   }
 }
