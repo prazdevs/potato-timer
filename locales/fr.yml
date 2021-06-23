@@ -10,6 +10,42 @@ footer:
   made: Fait avec ❤️ par {praz}
   praz: PraZ
   robynn: Robynn Frauhn
+info:
+  developer:
+    contact: me contacter
+    content: >-
+      Cette appli est mon cadeau à une communauté adorable et bienveillante qui
+      m'a beaucoup apporté. C'est aussi un terrain de jeu qui me permet
+      d'expérimenter des technologies que j'apprécie. J'ai essayé de la rendre
+      la plus accessible possible. Cependant il se peut qu'il y ait des bugs et
+      si tu en trouves un tu peux {contact}. Si tu es un développeur, tu peux
+      aussi {contribute}. Enfin, si tu veux contribuer d'une autre façon, tu
+      peux toujours {kofi}.
+    contribute: contribuer
+    kofi: m'offrir un café
+    title: Un mot du développeur
+  origin:
+    content: >-
+      Beacoup de petites patates de la merveilleuse communauté de Robynn Frauhn
+      utilisaient la technique Pomodoro dans leur travail. Comme dans l'oasis de
+      Robynn, les patates reignaient, elles décidèrent de remplacer les tomates
+      dans leur technique. C'est ainsi que naquit la technique Potato et son
+      Potato Timer. 
+    title: L'origine du Potato Timer
+  technique:
+    content: >-
+      La technique Pomodoro est une technique de gestion du temps. Elle permet
+      de définir des périodes de travail séparées par des courtes périodes de
+      pause. Il convient avant de commencer de définir des tâches à effectuer
+      pendant chaque période de travail. On peut la décomposer en 5 étapes :
+    steps:
+      - Définir la tâche sur laquelle travailler.
+      - Lancer un timer travail (25 minutes).
+      - Travailler sur cette tâche pendant ces 25 minutes).
+      - Faire une pause de 5 minutes.
+      - Recommencer en prenant une pause de 15-30 minutes au 4e cycle.
+    title: La technique Pomodoro
+  title: C'est quoi Potato Timer ?
 not-found: Page non trouvée
 notification:
   api-unavailable: >-
@@ -23,19 +59,20 @@ notification:
 options:
   change-language: Changer de langue — currently {current}
   change-theme: Changer le theme — currently {current}
+  info: Informations sur l'app
   title: Options
 reset:
   cancel: Annuler
   confirm: Réinitialiser
   message: Il y a une patate en cours, es-tu sûr·e de vouloir réinitialiser ?
 settings:
-  title: Réglages
   cancel: Annuler
-  save: Sauvegarder
-  pause-time: Durée d'une patate pause (minutes)
-  work-time: Durée d'une patate travail (minutes) 
   long-pause: Durée de la pause finale (minutes)
+  pause-time: Durée d'une patate pause (minutes)
   reset: Rétablir les durées par défaut
+  save: Sauvegarder
+  title: Réglages
+  work-time: Durée d'une patate travail (minutes)
 steps:
   done: Terminé !
   pause: On se détend...

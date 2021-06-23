@@ -10,6 +10,7 @@ const { t } = useI18n()
     <n-space class="options-buttons">
       <language-selector />
       <theme-selector />
+      <info-panel />
     </n-space>
   </div>
 </template>
