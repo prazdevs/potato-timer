@@ -13,6 +13,7 @@ const label = computed(() => t(
 const changeLocale = () => {
   language.value = availableLocales[(availableLocales.indexOf(language.value) + 1) % availableLocales.length]
   locale.value = language.value
+  document.documentElement.lang = language.value
 }
 </script>
 
