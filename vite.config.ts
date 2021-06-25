@@ -27,7 +27,6 @@ export default defineConfig({
         NaiveUiResolver(),
         ViteIconsResolver({
           componentPrefix: '',
-          // enabledCollections: ['carbon']
         }),
       ],
     }),
