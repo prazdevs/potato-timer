@@ -5,7 +5,8 @@
     "dev": "vite --port 3333",
     "build": "cross-env NODE_ENV=production vite-ssg build",
     "preview": "vite preview",
-    "preview-https": "serve dist"
+    "preview-https": "serve dist",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "@vueuse/components": "^5.0.3",
@@ -23,11 +24,14 @@
     "@antfu/eslint-config": "^0.6.6",
     "@iconify/json": "^1.1.360",
     "@intlify/vite-plugin-vue-i18n": "^2.2.1",
+    "@testing-library/cypress": "^7.0.6",
+    "@types/yamljs": "^0.2.31",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.1.2",
     "@vue/server-renderer": "^3.1.2",
     "cross-env": "^7.0.3",
+    "cypress": "^7.6.0",
     "eslint": "^7.29.0",
     "https-localhost": "^4.6.5",
     "naive-ui": "^2.14.0",
@@ -41,6 +45,7 @@
     "vite-plugin-pwa": "^0.8.1",
     "vite-plugin-vue-layouts": "^0.3.1",
     "vite-ssg": "^0.11.4",
-    "vue-tsc": "^0.2.0"
+    "vue-tsc": "^0.2.0",
+    "yamljs": "^0.3.0"
   }
 }
