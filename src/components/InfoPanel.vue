@@ -29,7 +29,7 @@ const show = ref(false)
     <on-click-outside @trigger="show = false">
       <focus-trap
         :value="show"
-        initial-focus=""
+        initial-focus="#close-button"
         fallback-focus="#info-button"
         @deactivate="show = false"
       >
@@ -37,16 +37,30 @@ const show = ref(false)
         <div>
           <n-card
             class="modal"
-
-            closable
             :segmented="{ content: 'hard' }"
-            @close="show = false"
           >
             <template #header>
               <div class="modal-header">
                 <img :src="potatoShy" alt="" />
-                <span>{{ t('info.title') }}</span>
+                <span>
+                  {{ t('info.title') }}
+                </span>
               </div>
+            </template>
+            <template #header-extra>
+              <n-button
+                id="close-button"
+                :aria-label="t('common.close')"
+                size="large"
+                text
+                @click="show = false"
+              >
+                <template #icon>
+                  <n-icon size="25">
+                    <carbon-close />
+                  </n-icon>
+                </template>
+              </n-button>
             </template>
             <template #default>
               <n-layout class="modal-body">

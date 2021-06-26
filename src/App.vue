@@ -62,4 +62,8 @@ body,
   white-space: nowrap; /* added line */
   border: 0;
 }
+
+a:focus-visible {
+  outline: var(--primary-color-hover) solid 1px;
+}
 </style>

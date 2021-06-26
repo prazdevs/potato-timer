@@ -1,4 +1,5 @@
 common:
+  close: Close the modal
   incompatibility: Incompatibility
   pause: Pause
   reset: Reset
