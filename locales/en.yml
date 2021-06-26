@@ -55,8 +55,8 @@ notification:
     to take a break !
   request-permission: Allow notifications
 options:
-  change-language: Change language — actuellement {current}
-  change-theme: Change theme — actuellement {current}
+  change-language: Change language — currently {current}
+  change-theme: Change theme — currently {current}
   info: About the app
   title: Options
 reset:
