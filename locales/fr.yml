@@ -58,8 +58,8 @@ notification:
     de ne pas t'apercevoir que c'est le moment de faire une pause !
   request-permission: Autoriser les notifications
 options:
-  change-language: Changer de langue — currently {current}
-  change-theme: Changer le theme — currently {current}
+  change-language: Changer de langue — actuellement {current}
+  change-theme: Changer le theme — actuellement {current}
   info: Informations sur l'app
   title: Options
 reset:
