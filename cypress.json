@@ -1,5 +1,5 @@
 {
   "baseUrl": "http://localhost:3333",
   "integrationFolder":"cypress/tests",
-  "locales": "locales"
+  "testFiles": ["**/*.{feature,features}"]
 }
