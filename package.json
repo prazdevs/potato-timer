@@ -33,6 +33,7 @@
     "cross-env": "^7.0.3",
     "cypress": "^7.6.0",
     "eslint": "^7.29.0",
+    "eslint-plugin-cypress": "^2.11.3",
     "https-localhost": "^4.6.5",
     "naive-ui": "^2.14.0",
     "sass": "^1.35.1",
