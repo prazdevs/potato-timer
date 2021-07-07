@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-import usePotato from '~/composables/usePotato'
 import useNotifier from '~/composables/useNotifier'
+import usePotato, { Step } from '~/composables/usePotato'
 
 const { t } = useI18n()
 const {
@@ -30,7 +30,7 @@ useNotifier(currentStep)
         circle
         size="large"
         :aria-label="running ? t('common.pause') : t('common.resume')"
-        :disabled="currentStep === 'done'"
+        :disabled="currentStep === Step.done"
         @click="toggle"
       >
         <template #icon>
@@ -41,11 +41,14 @@ useNotifier(currentStep)
         </template>
       </n-button>
       <reset-button
-        :disabled="running || currentStep === 'ready'"
-        :confirm="(currentStep === 'work') || (currentStep === 'pause')"
+        :disabled="running || currentStep === Step.ready"
+        :confirm="(currentStep === Step.work) || (currentStep === Step.pause)"
         @click="reset"
       />
-      <potato-settings :disabled="currentStep !== 'ready'" @change-times="changeTimes" />
+      <potato-settings
+        :disabled="currentStep !== Step.ready"
+        @change-times="changeTimes"
+      />
     </div>
   </div>
 </template>

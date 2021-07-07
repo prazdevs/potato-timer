@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { watch, defineProps, ref, computed, defineEmit } from 'vue'
-import { useLocalStorage } from '@vueuse/core'
-import { useI18n } from 'vue-i18n'
-import { FocusTrap } from 'focus-trap-vue'
 import { OnClickOutside } from '@vueuse/components'
+import { useLocalStorage } from '@vueuse/core'
+import { FocusTrap } from 'focus-trap-vue'
+import { watch, defineProps, ref, computed, defineEmit } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+import potatoDetect from '~/assets/potatoDetect.png'
 import {
   POTATO_WORK_TIME,
   POTATO_PAUSE_TIME,
   POTATO_LONG_PAUSE,
 } from '~/composables/usePotato'
-
-import potatoDetect from '~/assets/potatoDetect.png'
 
 const emit = defineEmit(['change-times'])
 const props = defineProps({
@@ -34,7 +33,7 @@ const active = ref(false)
 
 const show = computed(() => active.value && !props.disabled)
 
-function save() {
+function save () {
   if (workTime.value > 0 && pauseTime.value > 0 && longPause.value > 0) {
     emit('change-times', {
       workTime: workTime.value * 60,
@@ -45,17 +44,17 @@ function save() {
   }
 }
 
-function reset() {
+function reset () {
   workTime.value = 25
   pauseTime.value = 5
   longPause.value = 15
 }
 
-function validator(v: number) {
+function validator (v: number) {
   return v > 0
 }
 
-watch(show, (show) => {
+watch(show, show => {
   if (show) {
     workTime.value = storedWorkTime.value / 60
     pauseTime.value = storedPauseTime.value / 60
@@ -90,10 +89,14 @@ watch(show, (show) => {
       >
         <!-- container div needed for focus-trap -->
         <div>
-          <n-card class="modal" size="small" :segmented="{ content: 'hard' }">
+          <n-card
+            class="modal"
+            size="small"
+            :segmented="{ content: 'hard' }"
+          >
             <template #header>
               <div class="modal-header">
-                <img :src="potatoDetect" alt="" />
+                <img :src="potatoDetect" alt="">
                 <span>{{ t('settings.title') }}</span>
               </div>
             </template>
@@ -101,15 +104,28 @@ watch(show, (show) => {
               <div class="modal-body">
                 <label class="modal-input">
                   {{ t('settings.work-time') }}
-                  <n-input-number id="work-time-input" v-model:value="workTime" :step="5" :validator="validator" />
+                  <n-input-number
+                    id="work-time-input"
+                    v-model:value="workTime"
+                    :step="5"
+                    :validator="validator"
+                  />
                 </label>
                 <label class="modal-input">
                   {{ t('settings.pause-time') }}
-                  <n-input-number v-model:value="pauseTime" :step="5" :validator="validator" />
+                  <n-input-number
+                    v-model:value="pauseTime"
+                    :step="5"
+                    :validator="validator"
+                  />
                 </label>
                 <label class="modal-input">
                   {{ t('settings.long-pause') }}
-                  <n-input-number v-model:value="longPause" :step="5" :validator="validator" />
+                  <n-input-number
+                    v-model:value="longPause"
+                    :step="5"
+                    :validator="validator"
+                  />
                 </label>
                 <n-button class="modal-reset" @click="reset">
                   {{ t('settings.reset') }}
@@ -126,7 +142,11 @@ watch(show, (show) => {
                 >
                   {{ t('settings.cancel') }}
                 </n-button>
-                <n-button type="success" size="small" @click="save">
+                <n-button
+                  type="success"
+                  size="small"
+                  @click="save"
+                >
                   {{ t('settings.save') }}
                 </n-button>
               </div>

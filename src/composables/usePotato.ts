@@ -2,6 +2,8 @@ import { useLocalStorage } from '@vueuse/core'
 import usePersistentStopwatch from 'use-persistent-stopwatch'
 import { computed, onMounted, watch } from 'vue'
 
+import type { Ref, ComputedRef } from 'vue'
+
 export const POTATO_WORK_TIME = 'potato-work-time'
 export const POTATO_PAUSE_TIME = 'potato-pause-time'
 export const POTATO_LONG_PAUSE = 'potato-long-pause'
@@ -12,7 +14,26 @@ export interface TimeSettings {
   longPause: number
 }
 
-function usePotato() {
+export enum Step {
+  ready = 'ready',
+  done = 'done',
+  work = 'work',
+  pause = 'pause',
+}
+
+export interface Potato {
+  running: ComputedRef<boolean>
+  currentStep: ComputedRef<Step>
+  currentDuration: ComputedRef<number>
+  currentRemaining: ComputedRef<number>
+  currentPercentage: ComputedRef<number>
+  workTime: Ref<number>
+  reset: () => void
+  toggle: () => void
+  changeTimes: (ts: TimeSettings) => void
+}
+
+function usePotato (): Potato {
   const { elapsed, pause, resume, reset, running }
     = usePersistentStopwatch('potato', { interval: 1 })
 
@@ -49,16 +70,16 @@ function usePotato() {
 
   const currentStep = computed(() =>
     elapsed.value === 0
-      ? 'ready'
+      ? Step.ready
       : currentIndex.value === -1
-        ? 'done'
+        ? Step.done
         : currentIndex.value % 2 === 0
-          ? 'work'
-          : 'pause',
+          ? Step.work
+          : Step.pause,
   )
 
   const potatoRunning = computed(() =>
-    running.value && ['work', 'pause'].includes(currentStep.value),
+    running.value && [Step.work, Step.pause].includes(currentStep.value),
   )
 
   const currentDuration = computed(() =>
@@ -77,12 +98,12 @@ function usePotato() {
     () => 100 - (currentRemaining.value / currentDuration.value) * 100,
   )
 
-  function toggle() {
+  function toggle () {
     if (running.value) pause()
     else if (currentIndex.value >= 0) resume()
   }
 
-  function changeTimes(settings: TimeSettings) {
+  function changeTimes (settings: TimeSettings) {
     workTime.value = settings.workTime
     pauseTime.value = settings.pauseTime
     longPause.value = settings.longPause
@@ -92,7 +113,7 @@ function usePotato() {
     if (currentIndex.value < 0) pause()
   })
 
-  watch(currentIndex, (v) => {
+  watch(currentIndex, v => {
     if (v < 0) pause()
   })
 

@@ -1,13 +1,13 @@
+import VueI18n from '@intlify/vite-plugin-vue-i18n'
+import Vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
-import Layouts from 'vite-plugin-vue-layouts'
-import ViteIcons, { ViteIconsResolver } from 'vite-plugin-icons'
 import ViteComponents, { NaiveUiResolver } from 'vite-plugin-components'
-import { VitePWA } from 'vite-plugin-pwa'
-import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import ViteFonts from 'vite-plugin-fonts'
+import ViteIcons, { ViteIconsResolver } from 'vite-plugin-icons'
+import Pages from 'vite-plugin-pages'
+import { VitePWA } from 'vite-plugin-pwa'
+import Layouts from 'vite-plugin-vue-layouts'
 
 export default defineConfig({
   resolve: {

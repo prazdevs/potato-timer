@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "vite --port 3333",
     "build": "cross-env NODE_ENV=production vite-ssg build",
+    "lint": "eslint . --fix",
     "preview": "vite preview",
     "preview-https": "serve dist",
     "cy:open": "cypress open"
@@ -21,9 +22,9 @@
     "vue-router": "^4.0.8"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.6.6",
     "@iconify/json": "^1.1.360",
     "@intlify/vite-plugin-vue-i18n": "^2.2.1",
+    "@prazdevs/eslint-config": "^1.2.0",
     "@testing-library/cypress": "^7.0.6",
     "@types/yamljs": "^0.2.31",
     "@typescript-eslint/eslint-plugin": "^4.28.0",

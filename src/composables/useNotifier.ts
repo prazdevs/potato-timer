@@ -1,14 +1,15 @@
-import { ComputedRef, watch } from 'vue'
 import { usePermission } from '@vueuse/core'
+import { ComputedRef, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+import potatoNap from '~/assets/potatoNap.png'
 import potatoNote from '~/assets/potatoNote.png'
 import potatoParty from '~/assets/potatoParty.png'
-import potatoNap from '~/assets/potatoNap.png'
+import { Step } from '~/composables/usePotato'
 
-export default function useNotifier(
-  step: ComputedRef<'ready' | 'done' | 'work' | 'pause'>,
-) {
+export default function useNotifier (
+  step: ComputedRef<Step>,
+): void {
   const notificationAccess = usePermission('notifications')
   const { t } = useI18n()
 
@@ -16,15 +17,15 @@ export default function useNotifier(
     if (
       !window.Notification
       || notificationAccess.value !== 'granted'
-      || prev === 'ready'
+      || prev === Step.ready
     )
       return
     switch (next) {
-      case 'work':
+      case Step.work:
         return new Notification(t('steps.work'), { icon: potatoNote })
-      case 'pause':
+      case Step.pause:
         return new Notification(t('steps.pause'), { icon: potatoNap })
-      case 'done':
+      case Step.done:
         return new Notification(t('steps.done'), { icon: potatoParty })
     }
   })

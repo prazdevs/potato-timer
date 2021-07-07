@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+// / <reference types="cypress" />
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const cucumber = require('cypress-cucumber-preprocessor').default

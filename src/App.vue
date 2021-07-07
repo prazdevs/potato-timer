@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import { useHead } from '@vueuse/head'
-import type { GlobalThemeOverrides } from 'naive-ui'
 import { darkTheme } from 'naive-ui'
+import { onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+
+import type { GlobalThemeOverrides } from 'naive-ui'
 
 import { isDark } from '~/logic'
 
@@ -13,7 +14,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'A pomodoro timer, but with potatoes. Because potatoes are cool.',
+      content: 'A pomodoro timer, but with potatoes.',
     },
   ],
 })
@@ -35,7 +36,10 @@ onMounted(() => {
 
 <template>
   <client-only>
-    <n-config-provider :theme="isDark ? darkTheme : undefined" :theme-overrides="overrides">
+    <n-config-provider
+      :theme="isDark ? darkTheme : undefined"
+      :theme-overrides="overrides"
+    >
       <n-global-style />
       <router-view />
     </n-config-provider>

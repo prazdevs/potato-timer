@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { OnClickOutside } from '@vueuse/components'
+import { FocusTrap } from 'focus-trap-vue'
 import { defineEmit, defineProps, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { FocusTrap } from 'focus-trap-vue'
-import { OnClickOutside } from '@vueuse/components'
 
 const emit = defineEmit(['click'])
 const props = defineProps({
@@ -32,7 +32,12 @@ const reset = () => {
 </script>
 
 <template>
-  <n-popover trigger="manual" :show="show" :style="{ padding: 0 }" width="260">
+  <n-popover
+    trigger="manual"
+    :show="show"
+    :style="{ padding: 0 }"
+    width="260"
+  >
     <template #trigger>
       <n-button
         id="trigger-button"
@@ -65,10 +70,19 @@ const reset = () => {
             {{ t('reset.message') }}
           </div>
           <div class="popover-actions">
-            <n-button id="cancel-button" type="default" size="small" @click="show = false">
+            <n-button
+              id="cancel-button"
+              type="default"
+              size="small"
+              @click="show = false"
+            >
               {{ t('reset.cancel') }}
             </n-button>
-            <n-button type="error" size="small" @click="reset">
+            <n-button
+              type="error"
+              size="small"
+              @click="reset"
+            >
               {{ t('reset.confirm') }}
             </n-button>
           </div>

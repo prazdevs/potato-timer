@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { format } from 'date-fns'
 import { computed, defineProps } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { format } from 'date-fns'
 
-import { isDark } from '~/logic'
-
-import potatoNote from '~/assets/potatoNote.png'
-import potatoNap from '~/assets/potatoNap.png'
-import potatoParty from '~/assets/potatoParty.png'
 import potatoHappy from '~/assets/potatoHappy.png'
+import potatoNap from '~/assets/potatoNap.png'
+import potatoNote from '~/assets/potatoNote.png'
+import potatoParty from '~/assets/potatoParty.png'
+import { Step } from '~/composables/usePotato'
+import { isDark } from '~/logic'
 
 const { t } = useI18n()
 
@@ -20,10 +20,10 @@ const props = defineProps({
 
 const potatoImage = computed(() => {
   switch (props.step) {
-    case 'work': return potatoNote
-    case 'pause': return potatoNap
-    case 'done': return potatoParty
-    case 'ready': return potatoHappy
+    case Step.work: return potatoNote
+    case Step.pause: return potatoNap
+    case Step.done: return potatoParty
+    case Step.ready: return potatoHappy
     default: return ''
   }
 })
@@ -41,7 +41,11 @@ const remainingTime = computed(() => format(props.remaining * 1000, 'm:ss'))
       :percentage="percentage"
     >
       <div>
-        <img alt="" style="width: 128px;" :src="potatoImage" />
+        <img
+          alt=""
+          style="width: 128px;"
+          :src="potatoImage"
+        >
         <div class="remaining-time">
           {{ remainingTime }}
         </div>

@@ -1,9 +1,0 @@
-{
-  "env": {
-    "cypress/globals": true
-  },
-  "extends": [
-    "@antfu", 
-    "plugin:cypress/recommended"
-  ]
-}

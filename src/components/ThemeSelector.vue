@@ -13,7 +13,12 @@ const label = computed(() => t(
 </script>
 
 <template>
-  <n-button circle :aria-label="label" size="large" @click="toggleDark">
+  <n-button
+    circle
+    :aria-label="label"
+    size="large"
+    @click="toggleDark"
+  >
     <template #icon>
       <n-icon>
         <carbon-moon v-if="isDark" />

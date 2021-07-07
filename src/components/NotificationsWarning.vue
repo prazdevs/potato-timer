@@ -1,17 +1,17 @@
 <script setup lang="ts">
+import { usePermission } from '@vueuse/core'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { usePermission } from '@vueuse/core'
 
-import potatoNotif from '~/assets/potatoNotif.png'
 import potatoCry from '~/assets/potatoCry.png'
+import potatoNotif from '~/assets/potatoNotif.png'
 
 const notificationAccess = usePermission('notifications')
 const { t } = useI18n()
 
 const apiUnavailable = computed(() => !window.Notification)
 
-function requestPermission() {
+function requestPermission () {
   Notification.requestPermission()
 }
 </script>
@@ -26,7 +26,7 @@ function requestPermission() {
   >
     <template #header>
       <div class="alert-header">
-        <img alt="" :src="potatoCry" />
+        <img alt="" :src="potatoCry">
         <span>{{ t('common.incompatibility') }}</span>
       </div>
     </template>
@@ -45,7 +45,7 @@ function requestPermission() {
   >
     <template #header>
       <div class="alert-header">
-        <img alt="" :src="potatoNotif" />
+        <img alt="" :src="potatoNotif">
         <span>{{ t('common.warning') }}</span>
       </div>
     </template>

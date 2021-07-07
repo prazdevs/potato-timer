@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
 import { OnClickOutside } from '@vueuse/components'
 import { FocusTrap } from 'focus-trap-vue'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import potatoShy from '~/assets/potatoShy.png'
 
@@ -41,7 +41,7 @@ const show = ref(false)
           >
             <template #header>
               <div class="modal-header">
-                <img :src="potatoShy" alt="" />
+                <img :src="potatoShy" alt="">
                 <span>
                   {{ t('info.title') }}
                 </span>
@@ -89,7 +89,11 @@ const show = ref(false)
                   {{ t('info.developer.title') }}
                 </div>
 
-                <i18n-t class="content-body" keypath="info.developer.content" tag="div">
+                <i18n-t
+                  class="content-body"
+                  keypath="info.developer.content"
+                  tag="div"
+                >
                   <template #contact>
                     <n-element
                       tag="a"
