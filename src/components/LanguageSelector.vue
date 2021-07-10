@@ -16,7 +16,7 @@ const changeLocale = () => {
       (availableLocales.indexOf(language.value) + 1) % availableLocales.length
     ]
   locale.value = language.value
-  document.documentElement.lang = language.value
+  document.documentElement.setAttribute('lang', language.value)
 }
 </script>
 

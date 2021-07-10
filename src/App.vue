@@ -30,7 +30,7 @@ const overrides: GlobalThemeOverrides = {
 
 onMounted(() => {
   locale.value = language.value
-  document.documentElement.lang = language.value
+  document.documentElement.setAttribute('lang', language.value)
 })
 </script>
 
