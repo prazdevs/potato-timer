@@ -10,6 +10,14 @@ Then('I should not see {string}', text => {
   cy.findByText(text).should('not.exist')
 })
 
+Then('I should see a link {string} to {string}', (label, link) => {
+  cy.findByRole('link', { name: new RegExp(label, 'i') }).should(
+    'have.attr',
+    'href',
+    link
+  )
+})
+
 //* tasks display
 
 Then('I should see the task {string}', task => {
