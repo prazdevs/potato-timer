@@ -6,7 +6,7 @@ export interface Task {
   done: boolean
 }
 
-export default function useTasks (): Ref<Task[]> {
+export default function useTasks(): Ref<Task[]> {
   const tasks: Ref<Task[]> = useLocalStorage('potato-tasks', [])
 
   return tasks

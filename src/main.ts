@@ -6,12 +6,8 @@ import App from './App.vue'
 
 const routes = setupLayouts(generatedRoutes)
 
-export const createApp = ViteSSG(
-  App,
-  { routes },
-  ctx => {
-    Object
-      .values(import.meta.globEager('./modules/*.ts'))
-      .map(i => i.install?.(ctx))
-  },
-)
+export const createApp = ViteSSG(App, { routes }, ctx => {
+  Object.values(import.meta.globEager('./modules/*.ts')).map(i =>
+    i.install?.(ctx)
+  )
+})

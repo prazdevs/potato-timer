@@ -42,7 +42,7 @@ useNotifier(currentStep)
       </n-button>
       <reset-button
         :disabled="running || currentStep === Step.ready"
-        :confirm="(currentStep === Step.work) || (currentStep === Step.pause)"
+        :confirm="currentStep === Step.work || currentStep === Step.pause"
         @click="reset"
       />
       <potato-settings

@@ -35,13 +35,10 @@ const show = ref(false)
       >
         <!-- container div needed for focus-trap -->
         <div>
-          <n-card
-            class="modal"
-            :segmented="{ content: 'hard' }"
-          >
+          <n-card class="modal" :segmented="{ content: 'hard' }">
             <template #header>
               <div class="modal-header">
-                <img :src="potatoShy" alt="">
+                <img :src="potatoShy" alt="" />
                 <span>
                   {{ t('info.title') }}
                 </span>
@@ -137,6 +134,7 @@ const show = ref(false)
 <style scoped lang="scss">
 .modal {
   max-width: 700px;
+
   .modal-header {
     display: flex;
     align-items: center;
@@ -158,13 +156,13 @@ const show = ref(false)
 
     .content-body {
       a {
-      color: var(--text-color-base);
+        color: var(--text-color-base);
 
-      &:hover,
-      &:focus {
-        color: var(--primary-color-hover);
+        &:hover,
+        &:focus {
+          color: var(--primary-color-hover);
+        }
       }
-    }
     }
   }
 }

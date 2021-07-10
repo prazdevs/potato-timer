@@ -20,7 +20,7 @@ const taskStyle = (task: Task) => ({
   height: '18px',
 })
 
-function addTask () {
+function addTask() {
   tasks.value.push({ text: newTask.value, done: false })
   newTask.value = ''
 }
@@ -30,7 +30,7 @@ function addTask () {
   <div class="tasks">
     <n-card class="tasks-list" size="small">
       <div v-if="!tasks.length" class="tasks-empty">
-        <img :src="potatoLost" alt="">
+        <img :src="potatoLost" alt="" />
         <n-element tag="span">
           {{ t('tasks.empty') }}
         </n-element>
@@ -74,11 +74,7 @@ function addTask () {
                 @keypress.enter="addTask"
               />
             </label>
-            <n-button
-              circle
-              :aria-label="t('tasks.add')"
-              @click="addTask"
-            >
+            <n-button circle :aria-label="t('tasks.add')" @click="addTask">
               <template #icon>
                 <n-icon size="large">
                   <carbon-add />
@@ -94,7 +90,7 @@ function addTask () {
 
 <style scoped lang="scss">
 .n-list-item__suffix {
-  margin-left:0;
+  margin-left: 0;
 }
 .tasks {
   display: flex;
@@ -117,7 +113,7 @@ function addTask () {
       }
 
       span {
-        color: var(--text-color-3)
+        color: var(--text-color-3);
       }
     }
   }

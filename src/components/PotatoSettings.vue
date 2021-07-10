@@ -33,7 +33,7 @@ const active = ref(false)
 
 const show = computed(() => active.value && !props.disabled)
 
-function save () {
+function save() {
   if (workTime.value > 0 && pauseTime.value > 0 && longPause.value > 0) {
     emit('change-times', {
       workTime: workTime.value * 60,
@@ -44,13 +44,13 @@ function save () {
   }
 }
 
-function reset () {
+function reset() {
   workTime.value = 25
   pauseTime.value = 5
   longPause.value = 15
 }
 
-function validator (v: number) {
+function validator(v: number) {
   return v > 0
 }
 
@@ -89,14 +89,10 @@ watch(show, show => {
       >
         <!-- container div needed for focus-trap -->
         <div>
-          <n-card
-            class="modal"
-            size="small"
-            :segmented="{ content: 'hard' }"
-          >
+          <n-card class="modal" size="small" :segmented="{ content: 'hard' }">
             <template #header>
               <div class="modal-header">
-                <img :src="potatoDetect" alt="">
+                <img :src="potatoDetect" alt="" />
                 <span>{{ t('settings.title') }}</span>
               </div>
             </template>
@@ -142,11 +138,7 @@ watch(show, show => {
                 >
                   {{ t('settings.cancel') }}
                 </n-button>
-                <n-button
-                  type="success"
-                  size="small"
-                  @click="save"
-                >
+                <n-button type="success" size="small" @click="save">
                   {{ t('settings.save') }}
                 </n-button>
               </div>

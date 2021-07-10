@@ -20,11 +20,16 @@ const props = defineProps({
 
 const potatoImage = computed(() => {
   switch (props.step) {
-    case Step.work: return potatoNote
-    case Step.pause: return potatoNap
-    case Step.done: return potatoParty
-    case Step.ready: return potatoHappy
-    default: return ''
+    case Step.work:
+      return potatoNote
+    case Step.pause:
+      return potatoNap
+    case Step.done:
+      return potatoParty
+    case Step.ready:
+      return potatoHappy
+    default:
+      return ''
   }
 })
 
@@ -35,17 +40,13 @@ const remainingTime = computed(() => format(props.remaining * 1000, 'm:ss'))
   <n-space vertical align="center">
     <n-progress
       type="circle"
-      style="width: 250px;"
+      style="width: 250px"
       processing
       :color="isDark ? 'white' : 'black'"
       :percentage="percentage"
     >
       <div>
-        <img
-          alt=""
-          style="width: 128px;"
-          :src="potatoImage"
-        >
+        <img alt="" style="width: 128px" :src="potatoImage" />
         <div class="remaining-time">
           {{ remainingTime }}
         </div>

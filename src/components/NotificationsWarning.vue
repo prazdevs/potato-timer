@@ -11,7 +11,7 @@ const { t } = useI18n()
 
 const apiUnavailable = computed(() => !window.Notification)
 
-function requestPermission () {
+function requestPermission() {
   Notification.requestPermission()
 }
 </script>
@@ -26,12 +26,12 @@ function requestPermission () {
   >
     <template #header>
       <div class="alert-header">
-        <img alt="" :src="potatoCry">
+        <img alt="" :src="potatoCry" />
         <span>{{ t('common.incompatibility') }}</span>
       </div>
     </template>
     <n-space vertical align="center">
-      <div style="max-width: 400px;">
+      <div style="max-width: 400px">
         {{ t('notification.api-unavailable') }}
       </div>
     </n-space>
@@ -45,12 +45,12 @@ function requestPermission () {
   >
     <template #header>
       <div class="alert-header">
-        <img alt="" :src="potatoNotif">
+        <img alt="" :src="potatoNotif" />
         <span>{{ t('common.warning') }}</span>
       </div>
     </template>
     <n-space vertical align="center">
-      <div style="max-width: 400px;">
+      <div style="max-width: 400px">
         {{ t('notification.permission-warning') }}
       </div>
       <n-button type="success" @click="requestPermission">

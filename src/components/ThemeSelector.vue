@@ -6,19 +6,15 @@ import { isDark, toggleDark } from '~/logic'
 
 const { t } = useI18n()
 
-const label = computed(() => t(
-  'options.change-theme',
-  { current: isDark.value ? t('theme.dark') : t('theme.light') }),
+const label = computed(() =>
+  t('options.change-theme', {
+    current: isDark.value ? t('theme.dark') : t('theme.light'),
+  })
 )
 </script>
 
 <template>
-  <n-button
-    circle
-    :aria-label="label"
-    size="large"
-    @click="toggleDark"
-  >
+  <n-button circle :aria-label="label" size="large" @click="toggleDark">
     <template #icon>
       <n-icon>
         <carbon-moon v-if="isDark" />

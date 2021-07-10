@@ -32,12 +32,7 @@ const reset = () => {
 </script>
 
 <template>
-  <n-popover
-    trigger="manual"
-    :show="show"
-    :style="{ padding: 0 }"
-    width="260"
-  >
+  <n-popover trigger="manual" :show="show" :style="{ padding: 0 }" width="260">
     <template #trigger>
       <n-button
         id="trigger-button"
@@ -63,10 +58,7 @@ const reset = () => {
         @deactivate="show = false"
       >
         <div class="reset-popover">
-          <div
-            role="alert"
-            class="popover-body"
-          >
+          <div role="alert" class="popover-body">
             {{ t('reset.message') }}
           </div>
           <div class="popover-actions">
@@ -78,11 +70,7 @@ const reset = () => {
             >
               {{ t('reset.cancel') }}
             </n-button>
-            <n-button
-              type="error"
-              size="small"
-              @click="reset"
-            >
+            <n-button type="error" size="small" @click="reset">
               {{ t('reset.confirm') }}
             </n-button>
           </div>
