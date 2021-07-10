@@ -5,7 +5,7 @@ Given('local storage key {string} has value {string}', (key, value) => {
 })
 
 Given('the following tasks are saved:', dataTable => {
-  const tasks = dataTable.rawTable.map(e => ({
+  const tasks = dataTable.rawTable.map((e: string[]) => ({
     text: e[0],
     done: false,
   }))
@@ -17,8 +17,11 @@ Then('theme should be saved as {string}', mode => {
 })
 
 Then('task {string} should be saved', task => {
-  const tasks = JSON.parse(localStorage.getItem('potato-tasks')).map(
-    t => t.text
+  const stored = localStorage.getItem('potato-tasks')
+  if (!stored) throw new Error('no task storage')
+
+  const tasks = JSON.parse(stored).map(
+    (t: { text: string; done: boolean }) => t.text
   )
   expect(tasks).to.include(task)
 })

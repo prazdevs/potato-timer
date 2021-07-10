@@ -1,17 +1,17 @@
+const browserify = require('@cypress/browserify-preprocessor')
 const cucumber = require('cypress-cucumber-preprocessor').default
+const resolve = require('resolve')
 
 /**
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
-  on('file:preprocessor', cucumber())
+  const options = {
+    ...browserify.defaultOptions,
+    typescript: resolve.sync('typescript', { baseDir: config.projectRoot }),
+  }
 
-  // on('before:browser:launch', (browser, launchOptions) => {
-  //   if (browser.family === 'chromium') {
-  //     launchOptions.args.push('--force-dark-mode=true')
-  //     return launchOptions
-  //   }
-  // })
+  on('file:preprocessor', cucumber(options))
 
   return config
 }
