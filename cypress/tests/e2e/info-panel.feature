@@ -7,14 +7,12 @@ Feature: Info Panel
     And I should see 'The origin of the Potato Timer'
     And I should see 'A word from the developer'
     When I click on the button 'close the modal'
-    Then focus should be on button 'about the app'
 
   Scenario: Info panel can be open and closed with keyboard
     When I focus on the button 'about the app'
     And I press the 'enter' key
     Then I should see 'What is Potato Timer ?'
     When I press the 'esc' key
-    Then focus should be on button 'about the app'
 
   Scenario: Info panel should have the links
     When I click on the button 'about the app'
