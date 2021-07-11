@@ -11,7 +11,9 @@ When('I focus on the button {string}', label => {
 })
 
 When('I type {string} in the field {string}', (content, label) => {
-  cy.findByRole('textbox', { name: new RegExp(label, 'i') }).type(content)
+  cy.findByRole('textbox', { name: new RegExp(label, 'i') })
+    .clear()
+    .type(content)
 })
 
 When('I press the {string} key', key => {

@@ -1,8 +1,22 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
+//* common storage
+
 Given('local storage key {string} has value {string}', (key, value) => {
   localStorage.setItem(key, value)
 })
+
+Then('local storage key {string} should have value {string}', (key, value) => {
+  expect(localStorage.getItem(key)).to.eq(value)
+})
+
+//* theme storage
+
+Then('theme should be saved as {string}', mode => {
+  expect(localStorage.getItem('vueuse-color-scheme')).to.eq(mode)
+})
+
+//* tasks storage
 
 Given('the following tasks are saved:', dataTable => {
   const tasks = dataTable.rawTable.map((e: string[]) => ({
@@ -10,10 +24,6 @@ Given('the following tasks are saved:', dataTable => {
     done: false,
   }))
   localStorage.setItem('potato-tasks', JSON.stringify(tasks))
-})
-
-Then('theme should be saved as {string}', mode => {
-  expect(localStorage.getItem('vueuse-color-scheme')).to.eq(mode)
 })
 
 Then('task {string} should be saved', task => {
