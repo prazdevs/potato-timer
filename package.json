@@ -4,10 +4,11 @@
   "scripts": {
     "dev": "vite --port 3333",
     "build": "cross-env NODE_ENV=production vite-ssg build",
+    "cypress": "cypress open",
     "lint": "eslint . --fix",
     "preview": "vite preview",
     "preview-https": "serve dist",
-    "cy:open": "cypress open"
+    "test": "cypress run --browser chrome --headless"
   },
   "dependencies": {
     "@vueuse/components": "^5.1.3",
