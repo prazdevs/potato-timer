@@ -1,5 +1,9 @@
 {
   "baseUrl": "http://localhost:3333",
   "integrationFolder": "cypress/tests",
+  "retries": {
+    "openMode": 1,
+    "runMode": 2
+  },
   "testFiles": ["**/*.{feature,features}"]
 }

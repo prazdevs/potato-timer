@@ -7,7 +7,7 @@ Then('I should see {string}', text => {
 })
 
 Then('I should not see {string}', text => {
-  cy.findByText(text).should('not.exist')
+  cy.findByText(text).should('not.be.visible')
 })
 
 Then('I should see a link {string} to {string}', (label, link) => {
@@ -16,6 +16,10 @@ Then('I should see a link {string} to {string}', (label, link) => {
     'href',
     link
   )
+})
+
+Then('focus should be on button {string}', label => {
+  cy.findByRole('button', { name: new RegExp(label, 'i') }).should('have.focus')
 })
 
 //* tasks display
