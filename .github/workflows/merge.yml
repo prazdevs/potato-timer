@@ -29,6 +29,8 @@ jobs:
         CYPRESS_BASE_URL: http://localhost:5000
         CYPRESS_COVERAGE: true
     - name: Publish coverage
-      uses: codecov/codecov-action@v1
+      uses: paambaati/codeclimate-action@v2
+      env:
+        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+        coverageLocations: coverage
