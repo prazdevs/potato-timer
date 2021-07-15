@@ -1,0 +1,35 @@
+name: Build, test and deploy preview
+
+on: 
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs: 
+  build_and_test:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup node
+      uses: actions/setup-node
+      with:
+        node-version: '14'
+    - name: Install dependencies
+      run: yarn install
+    - name: Build
+      run: yarn build
+    - name: Test
+      uses: cypress-io/github-action@v2
+      with:
+        start: yarn preview
+        command: yarn test
+      env:
+        CYPRESS_BASE_URL: http://localhost:5000
+        CYPRESS_COVERAGE: false
+        
+
+
+  
+      
+
