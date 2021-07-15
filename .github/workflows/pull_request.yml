@@ -1,4 +1,4 @@
-name: Build, test and deploy preview
+name: Build and test
 
 on: 
   workflow_dispatch:
@@ -28,9 +28,3 @@ jobs:
       env:
         CYPRESS_BASE_URL: http://localhost:5000
         CYPRESS_COVERAGE: false
-        
-
-
-  
-      
-
