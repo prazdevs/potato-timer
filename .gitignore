@@ -1,7 +1,9 @@
 .DS_Store
+.nyc_output
 .vite-ssg-dist
 .vite-ssg-temp
 *.local
+coverage
 cypress/screenshots
 cypress/videos
 dist

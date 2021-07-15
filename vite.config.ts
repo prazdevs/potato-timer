@@ -5,6 +5,7 @@ import { defineConfig } from 'vite'
 import ViteComponents, { NaiveUiResolver } from 'vite-plugin-components'
 import ViteFonts from 'vite-plugin-fonts'
 import ViteIcons, { ViteIconsResolver } from 'vite-plugin-icons'
+import Istanbul from 'vite-plugin-istanbul'
 import Pages from 'vite-plugin-pages'
 import { VitePWA } from 'vite-plugin-pwa'
 import Layouts from 'vite-plugin-vue-layouts'
@@ -17,11 +18,8 @@ export default defineConfig({
   },
   plugins: [
     Vue(),
-
     Pages(),
-
     Layouts(),
-
     ViteComponents({
       customComponentResolvers: [
         NaiveUiResolver(),
@@ -30,15 +28,12 @@ export default defineConfig({
         }),
       ],
     }),
-
     ViteFonts({
       google: {
         families: ['Quicksand'],
       },
     }),
-
     ViteIcons(),
-
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
@@ -65,17 +60,20 @@ export default defineConfig({
         ],
       },
     }),
-
     VueI18n({
       include: [path.resolve(__dirname, 'locales/**')],
     }),
+    Istanbul({
+      include: 'src/*',
+      extension: ['.js', '.ts', '.vue'],
+      requireEnv: true,
+      cypress: true,
+    }),
   ],
-
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
   },
-
   optimizeDeps: {
     include: ['vue', 'vue-router', '@vueuse/core'],
     exclude: ['vue-demi'],
