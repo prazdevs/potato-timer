@@ -1,0 +1,34 @@
+name: Build, cover and deploy
+
+on:
+  workflow_dispatch:
+  push: 
+    branches: [ $default-branch ]
+
+jobs:
+  build_cover_and_deploy:
+    name: Build, cover and deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+    - name: Build
+      run: yarn build
+    - name: Test w/ coverage
+      uses: cypress-io/github-action@v2
+      with:
+        start: yarn preview
+        command: yarn test
+      env:
+        CYPRESS_BASE_URL: http://localhost:5000
+        CYPRESS_COVERAGE: true
+    - name: Publish coverage
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
