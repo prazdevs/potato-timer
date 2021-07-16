@@ -3,6 +3,7 @@
 .vite-ssg-dist
 .vite-ssg-temp
 *.local
+codecov.exe
 coverage
 cypress/screenshots
 cypress/videos
