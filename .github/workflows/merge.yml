@@ -29,4 +29,4 @@ jobs:
         CYPRESS_BASE_URL: http://localhost:5000
         CYPRESS_COVERAGE: true
     - name: Publish coverage
-      run: yarn publish-coverage
+      run: echo ::set-output name=coverage::$(cat coverage/lcov.info)
