@@ -8,7 +8,6 @@
     "lint": "eslint . --fix",
     "preview": "vite preview",
     "preview-https": "serve dist",
-    "publish-coverage": "codecov",
     "test": "cypress run --browser chrome --headless"
   },
   "dependencies": {
