@@ -1,4 +1,4 @@
-name: Build, cover and deploy
+name: Build, test and deploy
 
 on:
   workflow_dispatch:
@@ -28,7 +28,10 @@ jobs:
       env:
         CYPRESS_BASE_URL: http://localhost:5000
         CYPRESS_COVERAGE: true
-    - name: Publish coverage
-      uses: pCYSl5EDgo/cat@master
+    - name: Deploy to Netlify
+      uses: jsmrcaga/action-netlify-deploy@v1.1.0
       with:
-        path: coverage/lcov.info
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        NETLIFY_DEPLOY_TO_PROD: true
+        build_directory: dist
