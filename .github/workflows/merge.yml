@@ -29,9 +29,9 @@ jobs:
         CYPRESS_BASE_URL: http://localhost:5000
         CYPRESS_COVERAGE: true
     - name: Deploy to Netlify
-      uses: jsmrcaga/action-netlify-deploy@v1.1.0
+      uses: netlify/actions/cli@master
       with:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        args: deploy --prod=true
+      env:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        NETLIFY_DEPLOY_TO_PROD: true
-        build_directory: dist
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
