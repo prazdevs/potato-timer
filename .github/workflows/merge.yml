@@ -29,7 +29,4 @@ jobs:
         CYPRESS_BASE_URL: http://localhost:5000
         CYPRESS_COVERAGE: true
     - name: Publish coverage
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }} 
-        verbose: true
+      run: yarn publish-coverage

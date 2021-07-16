@@ -8,6 +8,7 @@
     "lint": "eslint . --fix",
     "preview": "vite preview",
     "preview-https": "serve dist",
+    "publish-coverage": "codecov",
     "test": "cypress run --browser chrome --headless"
   },
   "dependencies": {
@@ -33,6 +34,7 @@
     "@vitejs/plugin-vue": "^1.2.5",
     "@vue/compiler-sfc": "^3.1.4",
     "@vue/server-renderer": "^3.1.4",
+    "codecov": "^3.8.2",
     "cross-env": "^7.0.3",
     "cypress": "^7.7.0",
     "cypress-cucumber-preprocessor": "^4.1.4",
