@@ -27,6 +27,6 @@ jobs:
         command: yarn test
         record: true
       env:
-	CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
         CYPRESS_BASE_URL: http://localhost:5000
         CYPRESS_COVERAGE: false
