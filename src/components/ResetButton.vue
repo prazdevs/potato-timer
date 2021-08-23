@@ -4,17 +4,17 @@ import { FocusTrap } from 'focus-trap-vue'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const emit = defineEmits(['click'])
-const props = defineProps({
-  confirm: {
-    type: Boolean,
-    required: true,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+interface Props {
+  confirm: boolean
+  disabled: boolean
+}
+const props = withDefaults(defineProps<Props>(), {
+  disabled: false,
 })
+
+const emit = defineEmits<{
+  (event: 'click'): void
+}>()
 
 const { t } = useI18n()
 

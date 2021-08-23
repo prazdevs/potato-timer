@@ -12,11 +12,12 @@ import { isDark } from '~/logic'
 
 const { t } = useI18n()
 
-const props = defineProps({
-  step: { type: String, required: true },
-  percentage: { type: Number, required: true },
-  remaining: { type: Number, required: true },
-})
+interface Props {
+  step: string
+  percentage: number
+  remaining: number
+}
+const props = defineProps<Props>()
 
 const potatoImage = computed(() => {
   switch (props.step) {

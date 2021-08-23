@@ -12,13 +12,19 @@ import {
   POTATO_LONG_PAUSE,
 } from '~/composables/usePotato'
 
-const emit = defineEmits(['change-times'])
-const props = defineProps({
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+interface Props {
+  disabled: boolean
+}
+const props = withDefaults(defineProps<Props>(), {
+  disabled: false,
 })
+
+const emit = defineEmits<{
+  (
+    event: 'change-times',
+    payload: { workTime: number; pauseTime: number; longPause: number }
+  ): void
+}>()
 
 const { t } = useI18n()
 

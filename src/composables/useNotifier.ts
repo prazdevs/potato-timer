@@ -1,6 +1,8 @@
 import { usePermission } from '@vueuse/core'
-import { ComputedRef, watch } from 'vue'
+import { watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+
+import type { ComputedRef } from 'vue'
 
 import potatoNap from '~/assets/potatoNap.png'
 import potatoNote from '~/assets/potatoNote.png'

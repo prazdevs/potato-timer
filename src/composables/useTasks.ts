@@ -1,5 +1,6 @@
 import { useLocalStorage } from '@vueuse/core'
-import { Ref } from 'vue'
+
+import type { Ref } from 'vue'
 
 export interface Task {
   text: string
