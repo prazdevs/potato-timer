@@ -30,7 +30,7 @@ function addTask() {
   <div class="tasks">
     <n-card class="tasks-list" size="small">
       <div v-if="!tasks.length" class="tasks-empty">
-        <img :src="potatoLost" alt="" />
+        <img alt="" :src="potatoLost" />
         <n-element tag="span">
           {{ t('tasks.empty') }}
         </n-element>
@@ -47,9 +47,9 @@ function addTask() {
               :aria-label="t('tasks.delete', { task: task.text })"
               circle
               ghost
+              size="small"
               text
               type="error"
-              size="small"
               @click="() => tasks.splice(idx, 1)"
             >
               <template #icon>
@@ -69,12 +69,12 @@ function addTask() {
               <n-input
                 id="add-task"
                 v-model:value="newTask"
-                round
                 placeholder
+                round
                 @keypress.enter="addTask"
               />
             </label>
-            <n-button circle :aria-label="t('tasks.add')" @click="addTask">
+            <n-button :aria-label="t('tasks.add')" circle @click="addTask">
               <template #icon>
                 <n-icon size="large">
                   <carbon-add />

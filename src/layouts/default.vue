@@ -3,6 +3,7 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 </script>
+
 <template>
   <div class="layout">
     <h1 class="header">POTATO TIMER</h1>
@@ -15,9 +16,9 @@ const { t } = useI18n()
       <i18n-t keypath="footer.credits" tag="div">
         <template #robynn>
           <n-element
-            tag="a"
             href="https://twitter.com/RFrauhn"
             rel="noreferrer noopener"
+            tag="a"
             target="_blank"
           >
             {{ t('footer.robynn') }}
@@ -25,9 +26,9 @@ const { t } = useI18n()
         </template>
         <template #hels>
           <n-element
-            tag="a"
             href="https://twitter.com/hels_draws"
             rel="noreferrer noopener"
+            tag="a"
             target="_blank"
           >
             {{ t('footer.hels') }}
@@ -37,9 +38,9 @@ const { t } = useI18n()
       <i18n-t keypath="footer.made" tag="div">
         <template #praz>
           <n-element
-            tag="a"
             href="https://github.com/prazdevs"
             rel="noreferrer noopener"
+            tag="a"
             target="_blank"
           >
             {{ t('footer.praz') }}

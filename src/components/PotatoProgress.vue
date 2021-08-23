@@ -38,16 +38,16 @@ const remainingTime = computed(() => format(props.remaining * 1000, 'm:ss'))
 </script>
 
 <template>
-  <n-space vertical align="center">
+  <n-space align="center" vertical>
     <n-progress
-      type="circle"
-      style="width: 250px"
-      processing
       :color="isDark ? 'white' : 'black'"
       :percentage="percentage"
+      processing
+      style="width: 250px"
+      type="circle"
     >
       <div>
-        <img alt="" style="width: 128px" :src="potatoImage" />
+        <img alt="" :src="potatoImage" style="width: 128px" />
         <div class="remaining-time">
           {{ remainingTime }}
         </div>

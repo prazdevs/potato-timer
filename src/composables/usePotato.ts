@@ -30,7 +30,6 @@ export interface Potato {
   workTime: Ref<number>
   reset: () => void
   toggle: () => void
-  changeTimes: (ts: TimeSettings) => void
 }
 
 function usePotato(): Potato {
@@ -105,12 +104,6 @@ function usePotato(): Potato {
     else if (currentIndex.value >= 0) resume()
   }
 
-  function changeTimes(settings: TimeSettings) {
-    workTime.value = settings.workTime
-    pauseTime.value = settings.pauseTime
-    longPause.value = settings.longPause
-  }
-
   onMounted(() => {
     if (currentIndex.value < 0) pause()
   })
@@ -128,7 +121,6 @@ function usePotato(): Potato {
     currentPercentage,
     toggle,
     workTime,
-    changeTimes,
   }
 }
 

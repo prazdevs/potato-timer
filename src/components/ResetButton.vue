@@ -32,14 +32,14 @@ const reset = () => {
 </script>
 
 <template>
-  <n-popover trigger="manual" :show="show" :style="{ padding: 0 }" width="260">
+  <n-popover :show="show" :style="{ padding: 0 }" trigger="manual" width="260">
     <template #trigger>
       <n-button
         id="trigger-button"
-        circle
-        size="large"
         :aria-label="t('common.reset')"
+        circle
         :disabled="props.disabled"
+        size="large"
         :style="{ marginLeft: '12px' }"
         @click="click"
       >
@@ -53,24 +53,24 @@ const reset = () => {
     <on-click-outside @trigger="show = false">
       <focus-trap
         v-model="show"
-        initial-focus="#cancel-button"
         fallback-focus="#trigger-button"
+        initial-focus="#cancel-button"
         @deactivate="show = false"
       >
         <div class="reset-popover">
-          <div role="alert" class="popover-body">
+          <div class="popover-body" role="alert">
             {{ t('reset.message') }}
           </div>
           <div class="popover-actions">
             <n-button
               id="cancel-button"
-              type="default"
               size="small"
+              type="default"
               @click="show = false"
             >
               {{ t('reset.cancel') }}
             </n-button>
-            <n-button type="error" size="small" @click="reset">
+            <n-button size="small" type="error" @click="reset">
               {{ t('reset.confirm') }}
             </n-button>
           </div>

@@ -72,10 +72,10 @@ watch(show, show => {
 <template>
   <n-button
     id="settings-button"
-    circle
-    size="large"
     :aria-label="t('settings.title')"
+    circle
     :disabled="props.disabled"
+    size="large"
     :style="{ marginLeft: '12px' }"
     @click="active = true"
   >
@@ -88,17 +88,17 @@ watch(show, show => {
   <n-modal :show="show">
     <on-click-outside @trigger="active = false">
       <focus-trap
-        :value="show"
-        initial-focus="#work-time-input > div > div > div > input"
         fallback-focus="#settings-button"
+        initial-focus="#work-time-input > div > div > div > input"
+        :value="show"
         @deactivate="active = false"
       >
         <!-- container div needed for focus-trap -->
         <div>
-          <n-card class="modal" size="small" :segmented="{ content: 'hard' }">
+          <n-card class="modal" :segmented="{ content: 'hard' }" size="small">
             <template #header>
               <div class="modal-header">
-                <img :src="potatoDetect" alt="" />
+                <img alt="" :src="potatoDetect" />
                 <span>{{ t('settings.title') }}</span>
               </div>
             </template>
@@ -138,13 +138,13 @@ watch(show, show => {
               <div class="modal-actions">
                 <n-button
                   id="cancel-button"
-                  type="default"
                   size="small"
+                  type="default"
                   @click="active = false"
                 >
                   {{ t('settings.cancel') }}
                 </n-button>
-                <n-button type="success" size="small" @click="save">
+                <n-button size="small" type="success" @click="save">
                   {{ t('settings.save') }}
                 </n-button>
               </div>

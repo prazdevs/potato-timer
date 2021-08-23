@@ -12,7 +12,6 @@ const {
   currentRemaining,
   currentPercentage,
   running,
-  changeTimes,
 } = usePotato()
 
 useNotifier(currentStep)
@@ -21,16 +20,16 @@ useNotifier(currentStep)
 <template>
   <div class="potato-timer">
     <potato-progress
-      :step="currentStep"
       :percentage="currentPercentage"
       :remaining="currentRemaining"
+      :step="currentStep"
     />
     <div class="controls">
       <n-button
-        circle
-        size="large"
         :aria-label="running ? t('common.pause') : t('common.resume')"
+        circle
         :disabled="currentStep === Step.done"
+        size="large"
         @click="toggle"
       >
         <template #icon>
@@ -41,14 +40,11 @@ useNotifier(currentStep)
         </template>
       </n-button>
       <reset-button
-        :disabled="running || currentStep === Step.ready"
         :confirm="currentStep === Step.work || currentStep === Step.pause"
+        :disabled="running || currentStep === Step.ready"
         @click="reset"
       />
-      <potato-settings
-        :disabled="currentStep !== Step.ready"
-        @change-times="changeTimes"
-      />
+      <potato-settings :disabled="currentStep !== Step.ready" />
     </div>
   </div>
 </template>

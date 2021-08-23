@@ -20,9 +20,9 @@ function requestPermission() {
   <n-alert
     v-if="apiUnavailable"
     class="alert-panel"
-    type="info"
-    title
     :show-icon="false"
+    title
+    type="info"
   >
     <template #header>
       <div class="alert-header">
@@ -30,7 +30,7 @@ function requestPermission() {
         <span>{{ t('common.incompatibility') }}</span>
       </div>
     </template>
-    <n-space vertical align="center">
+    <n-space align="center" vertical>
       <div style="max-width: 400px">
         {{ t('notification.api-unavailable') }}
       </div>
@@ -39,9 +39,9 @@ function requestPermission() {
   <n-alert
     v-else-if="notificationAccess !== 'granted'"
     class="alert-panel"
-    type="warning"
-    title
     :show-icon="false"
+    title
+    type="warning"
   >
     <template #header>
       <div class="alert-header">
@@ -49,7 +49,7 @@ function requestPermission() {
         <span>{{ t('common.warning') }}</span>
       </div>
     </template>
-    <n-space vertical align="center">
+    <n-space align="center" vertical>
       <div style="max-width: 400px">
         {{ t('notification.permission-warning') }}
       </div>

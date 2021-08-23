@@ -14,9 +14,9 @@ const show = ref(false)
 <template>
   <n-button
     id="info-button"
+    :aria-label="t('options.info')"
     circle
     size="large"
-    :aria-label="t('options.info')"
     @click="show = true"
   >
     <template #icon>
@@ -28,9 +28,9 @@ const show = ref(false)
   <n-modal :show="show">
     <on-click-outside @trigger="show = false">
       <focus-trap
-        :value="show"
-        initial-focus="#close-button"
         fallback-focus="#info-button"
+        initial-focus="#close-button"
+        :value="show"
         @deactivate="show = false"
       >
         <!-- container div needed for focus-trap -->
@@ -38,7 +38,7 @@ const show = ref(false)
           <n-card class="modal" :segmented="{ content: 'hard' }">
             <template #header>
               <div class="modal-header">
-                <img :src="potatoShy" alt="" />
+                <img alt="" :src="potatoShy" />
                 <span>
                   {{ t('info.title') }}
                 </span>
@@ -93,9 +93,9 @@ const show = ref(false)
                 >
                   <template #contact>
                     <n-element
-                      tag="a"
                       href="https://twitter.com/prazdevs"
                       rel="noreferrer noopener"
+                      tag="a"
                       target="_blank"
                     >
                       {{ t('info.developer.contact') }}
@@ -103,9 +103,9 @@ const show = ref(false)
                   </template>
                   <template #contribute>
                     <n-element
-                      tag="a"
                       href="https://github.com/prazdevs/potato-timer"
                       rel="noreferrer noopener"
+                      tag="a"
                       target="_blank"
                     >
                       {{ t('info.developer.contribute') }}
@@ -113,9 +113,9 @@ const show = ref(false)
                   </template>
                   <template #kofi>
                     <n-element
-                      tag="a"
                       href="https://ko-fi.com/prazdevs"
                       rel="noreferrer noopener"
+                      tag="a"
                       target="_blank"
                     >
                       {{ t('info.developer.kofi') }}
