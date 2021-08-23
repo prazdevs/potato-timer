@@ -12,6 +12,7 @@ const {
   currentRemaining,
   currentPercentage,
   running,
+  changeTimes,
 } = usePotato()
 
 useNotifier(currentStep)
@@ -44,7 +45,10 @@ useNotifier(currentStep)
         :disabled="running || currentStep === Step.ready"
         @click="reset"
       />
-      <potato-settings :disabled="currentStep !== Step.ready" />
+      <potato-settings
+        :disabled="currentStep !== Step.ready"
+        @change-times="changeTimes"
+      />
     </div>
   </div>
 </template>
