@@ -2,7 +2,7 @@
 import { OnClickOutside } from '@vueuse/components'
 import { useLocalStorage } from '@vueuse/core'
 import { FocusTrap } from 'focus-trap-vue'
-import { watch, defineProps, ref, computed, defineEmit } from 'vue'
+import { watch, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import potatoDetect from '~/assets/potatoDetect.png'
@@ -12,7 +12,7 @@ import {
   POTATO_LONG_PAUSE,
 } from '~/composables/usePotato'
 
-const emit = defineEmit(['change-times'])
+const emit = defineEmits(['change-times'])
 const props = defineProps({
   disabled: {
     type: Boolean,

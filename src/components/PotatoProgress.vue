@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { format } from 'date-fns'
-import { computed, defineProps } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import potatoHappy from '~/assets/potatoHappy.png'

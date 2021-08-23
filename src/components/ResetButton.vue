@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { OnClickOutside } from '@vueuse/components'
 import { FocusTrap } from 'focus-trap-vue'
-import { defineEmit, defineProps, ref } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const emit = defineEmit(['click'])
+const emit = defineEmits(['click'])
 const props = defineProps({
   confirm: {
     type: Boolean,
