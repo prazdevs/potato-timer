@@ -1,6 +1,7 @@
 {
   "baseUrl": "http://localhost:3333",
   "integrationFolder": "cypress/tests",
+  "projectId": "mbq37a",
   "retries": {
     "openMode": 1,
     "runMode": 2
