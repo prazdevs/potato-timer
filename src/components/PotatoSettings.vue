@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { OnClickOutside } from '@vueuse/components'
-import { useLocalStorage } from '@vueuse/core'
 import { FocusTrap } from 'focus-trap-vue'
 import { watch, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import potatoDetect from '~/assets/potatoDetect.png'
-import {
-  POTATO_WORK_TIME,
-  POTATO_PAUSE_TIME,
-  POTATO_LONG_PAUSE,
-} from '~/composables/usePotato'
+import usePotatoStorage, {
+  DEFAULT_WORK_TIME,
+  DEFAULT_PAUSE_TIME,
+  DEFAULT_LONG_PAUSE,
+} from '~/composables/usePotatoStorage'
 
 interface Props {
   disabled: boolean
@@ -28,13 +27,15 @@ const emit = defineEmits<{
 
 const { t } = useI18n()
 
-const storedWorkTime = useLocalStorage(POTATO_WORK_TIME, 25 * 60)
-const storedPauseTime = useLocalStorage(POTATO_PAUSE_TIME, 5 * 60)
-const storedLongPause = useLocalStorage(POTATO_LONG_PAUSE, 15 * 60)
+const {
+  workTime: storedWorkTime,
+  pauseTime: storedPauseTime,
+  longPause: storedLongPause,
+} = usePotatoStorage()
 
-const workTime = ref<number>(storedWorkTime.value)
-const pauseTime = ref<number>(storedPauseTime.value)
-const longPause = ref<number>(storedLongPause.value)
+const workTime = ref<number>(storedWorkTime.value / 60)
+const pauseTime = ref<number>(storedPauseTime.value / 60)
+const longPause = ref<number>(storedLongPause.value / 60)
 const active = ref(false)
 
 const show = computed(() => active.value && !props.disabled)
@@ -46,14 +47,15 @@ function save() {
       pauseTime: pauseTime.value * 60,
       longPause: longPause.value * 60,
     })
+
     active.value = false
   }
 }
 
 function reset() {
-  workTime.value = 25
-  pauseTime.value = 5
-  longPause.value = 15
+  workTime.value = DEFAULT_WORK_TIME / 60
+  pauseTime.value = DEFAULT_PAUSE_TIME / 60
+  longPause.value = DEFAULT_LONG_PAUSE / 60
 }
 
 function validator(v: number) {
@@ -62,9 +64,9 @@ function validator(v: number) {
 
 watch(show, show => {
   if (show) {
-    workTime.value = storedWorkTime.value / 60
-    pauseTime.value = storedPauseTime.value / 60
-    longPause.value = storedLongPause.value / 60
+    // workTime.value = storedWorkTime.value
+    // pauseTime.value = storedPauseTime.value
+    // longPause.value = storedLongPause.value
   }
 })
 </script>

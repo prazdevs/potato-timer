@@ -1,12 +1,9 @@
-import { useLocalStorage } from '@vueuse/core'
 import usePersistentStopwatch from 'use-persistent-stopwatch'
 import { computed, onMounted, watch } from 'vue'
 
 import type { Ref, ComputedRef } from 'vue'
 
-export const POTATO_WORK_TIME = 'potato-work-time'
-export const POTATO_PAUSE_TIME = 'potato-pause-time'
-export const POTATO_LONG_PAUSE = 'potato-long-pause'
+import usePotatoStorage from '~/composables/usePotatoStorage'
 
 export interface TimeSettings {
   workTime: number
@@ -39,9 +36,7 @@ function usePotato(): Potato {
     { interval: 1 }
   )
 
-  const workTime = useLocalStorage(POTATO_WORK_TIME, 25 * 60)
-  const pauseTime = useLocalStorage(POTATO_PAUSE_TIME, 5 * 60)
-  const longPause = useLocalStorage(POTATO_LONG_PAUSE, 15 * 60)
+  const { workTime, pauseTime, longPause } = usePotatoStorage()
 
   const elapsedSeconds = computed(() => Math.floor(elapsed.value / 1000))
 
@@ -109,6 +104,7 @@ function usePotato(): Potato {
     workTime.value = settings.workTime
     pauseTime.value = settings.pauseTime
     longPause.value = settings.longPause
+    reset()
   }
 
   onMounted(() => {
