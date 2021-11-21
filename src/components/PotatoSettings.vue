@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { OnClickOutside } from '@vueuse/components'
 import { FocusTrap } from 'focus-trap-vue'
-import { watch, ref, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import potatoDetect from '~/assets/potatoDetect.png'
@@ -61,14 +61,6 @@ function reset() {
 function validator(v: number) {
   return v > 0
 }
-
-watch(show, show => {
-  if (show) {
-    // workTime.value = storedWorkTime.value
-    // pauseTime.value = storedPauseTime.value
-    // longPause.value = storedLongPause.value
-  }
-})
 </script>
 
 <template>
