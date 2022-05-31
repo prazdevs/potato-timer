@@ -1,11 +1,12 @@
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Vue from '@vitejs/plugin-vue'
 import path from 'path'
+import ViteIconsResolver from 'unplugin-icons/resolver'
+import ViteIcons from 'unplugin-icons/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import ViteComponents from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
-import ViteComponents, { NaiveUiResolver } from 'vite-plugin-components'
 import ViteFonts from 'vite-plugin-fonts'
-import ViteIcons, { ViteIconsResolver } from 'vite-plugin-icons'
-import Istanbul from 'vite-plugin-istanbul'
 import Pages from 'vite-plugin-pages'
 import { VitePWA } from 'vite-plugin-pwa'
 import Layouts from 'vite-plugin-vue-layouts'
@@ -21,7 +22,7 @@ export default defineConfig({
     Pages(),
     Layouts(),
     ViteComponents({
-      customComponentResolvers: [
+      resolvers: [
         NaiveUiResolver(),
         ViteIconsResolver({
           componentPrefix: '',
@@ -62,12 +63,6 @@ export default defineConfig({
     }),
     VueI18n({
       include: [path.resolve(__dirname, 'locales/**')],
-    }),
-    Istanbul({
-      include: 'src/*',
-      extension: ['.js', '.ts', '.vue'],
-      requireEnv: true,
-      cypress: true,
     }),
   ],
   ssgOptions: {

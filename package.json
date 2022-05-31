@@ -11,8 +11,8 @@
     "test:e2e": "cypress run --browser chrome"
   },
   "dependencies": {
-    "@vueuse/components": "^7.7.1",
-    "@vueuse/core": "^7.7.1",
+    "@vueuse/components": "^8.6.0",
+    "@vueuse/core": "^8.6.0",
     "@vueuse/head": "^0.7.6",
     "date-fns": "^2.28.0",
     "focus-trap": "^6.9.3",
@@ -24,8 +24,8 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.0",
-    "@iconify/json": "^1.1.461",
-    "@intlify/vite-plugin-vue-i18n": "^3.4.0",
+    "@iconify/json": "^2.1.54",
+    "@intlify/vite-plugin-vue-i18n": "^4.0.0",
     "@prazdevs/eslint-config": "^3.2.1",
     "@testing-library/cypress": "^8.0.2",
     "@types/cypress-cucumber-preprocessor": "^4.0.1",
@@ -42,17 +42,19 @@
     "prettier": "^2.6.2",
     "sass": "^1.52.1",
     "typescript": "^4.7.2",
+    "unplugin-icons": "^0.14.3",
+    "unplugin-vue-components": "^0.19.6",
     "vite": "^2.9.9",
-    "vite-plugin-components": "^0.13.3",
-    "vite-plugin-fonts": "^0.2.2",
-    "vite-plugin-icons": "^0.6.5",
-    "vite-plugin-istanbul": "^2.7.3",
-    "vite-plugin-pages": "^0.19.9",
-    "vite-plugin-pwa": "^0.11.13",
-    "vite-plugin-vue-layouts": "^0.5.0",
-    "vite-ssg": "^0.16.2",
-    "vitest": "^0.0.78",
-    "vue-tsc": "^0.29.8",
+
+    "vite-plugin-fonts": "^0.4.0",
+
+
+    "vite-plugin-pages": "^0.23.0",
+    "vite-plugin-pwa": "^0.12.0",
+    "vite-plugin-vue-layouts": "^0.6.0",
+    "vite-ssg": "^0.20.0",
+    "vitest": "^0.13.0",
+    "vue-tsc": "^0.35.2",
     "yamljs": "^0.3.0"
   },
   "cypress-cucumber-preprocessor": {
