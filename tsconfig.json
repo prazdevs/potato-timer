@@ -19,6 +19,7 @@
     "target": "es2016",
     "types": [
       "vite/client",
+      "vite-plugin-pages/client",
       "vite-plugin-vue-layouts/client",
       "cypress",
       "@testing-library/cypress"
