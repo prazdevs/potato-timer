@@ -8,6 +8,7 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "noUnusedLocals": true,
+    "jsx": "preserve",
     "paths": {
       "~/*": ["src/*"]
     },

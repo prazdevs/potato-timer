@@ -35,15 +35,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <client-only>
-    <n-config-provider
-      :theme="isDark ? darkTheme : undefined"
-      :theme-overrides="overrides"
-    >
-      <n-global-style />
-      <router-view />
-    </n-config-provider>
-  </client-only>
+  <!-- <client-only> -->
+  <n-config-provider
+    :theme="isDark ? darkTheme : undefined"
+    :theme-overrides="overrides"
+  >
+    <n-global-style />
+    <router-view />
+  </n-config-provider>
+  <!-- </client-only> -->
 </template>
 
 <style>
