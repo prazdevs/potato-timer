@@ -3,6 +3,8 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 import '@vue/runtime-core'
 
+export {}
+
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CarbonAdd: typeof import('~icons/carbon/add')['default']
@@ -50,5 +52,3 @@ declare module '@vue/runtime-core' {
     ThemeSelector: typeof import('./src/components/ThemeSelector.vue')['default']
   }
 }
-
-export {}

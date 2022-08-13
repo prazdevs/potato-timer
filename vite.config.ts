@@ -65,11 +65,6 @@ export default defineConfig({
       include: [path.resolve(__dirname, 'locales/**')],
     }),
   ],
-  ssgOptions: {
-    script: 'async',
-    formatting: 'minify',
-    format: 'cjs'
-  },
   optimizeDeps: {
     include: ['vue', 'vue-router', '@vueuse/core'],
     exclude: ['vue-demi'],
