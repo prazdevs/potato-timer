@@ -34,7 +34,7 @@ export default defineConfig({
         families: ['Quicksand'],
       },
     }),
-    ViteIcons(),
+    ViteIcons({}),
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
