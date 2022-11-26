@@ -8,7 +8,7 @@ const { t } = useI18n()
       POTATO TIMER
     </h1>
     <div class="view">
-      <router-view />
+      <slot />
     </div>
 
     <div class="footer">

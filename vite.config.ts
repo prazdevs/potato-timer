@@ -8,9 +8,7 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import Fonts from 'vite-plugin-fonts'
-import Pages from 'vite-plugin-pages'
 import { VitePWA } from 'vite-plugin-pwa'
-import Layouts from 'vite-plugin-vue-layouts'
 
 export default defineConfig({
   resolve: {
@@ -20,8 +18,6 @@ export default defineConfig({
   },
   plugins: [
     Vue(),
-    Pages(),
-    Layouts(),
     Components({
       dts: 'src/components.d.ts',
       resolvers: [

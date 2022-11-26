@@ -14,12 +14,6 @@
   <a>
     <img src="https://img.shields.io/github/package-json/dependency-version/prazdevs/potato-timer/vue?color=41B883&logo=vue.js">
   </a>
-  <a href="https://codeclimate.com/github/prazdevs/potato-timer/maintainability">
-    <img src="https://img.shields.io/codeclimate/maintainability/prazdevs/use-persistent-stopwatch?logo=code-climate&style=flat" />
-  </a>
-  <a href="https://codecov.io/gh/prazdevs/potato-timer">
-    <img alt="codecov" src="https://codecov.io/gh/prazdevs/potato-timer/branch/main/graph/badge.svg?token=9LFGDMP9M9"/>
-  </a>
   <a href="https://github.com/prazdevs/potato-timer/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/prazdevs/potato-timer?style=flat" />
   </a>
@@ -50,7 +44,6 @@ Available at [this url](https://potatotimer.app). Tutorial available in the app.
 This app is a sandbox I made to use Vue3 and Vite, alongside interesting packages such as VueUse. It features lots of different stuff such as:
 - Vue 3 w/ `script setup` syntax.
 - Vite with plugins (`layouts`, `pages`, `components`, `i18n`...
-- Server-side rendering (with `vite-ssg`).
 - Fully typed with TypeScript.
 - Full PWA support.
 - Cypress tests with Gherkin syntax (using Cucumber.js).

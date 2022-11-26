@@ -2,6 +2,8 @@
 import { useLocalStorage } from '@vueuse/core'
 import { useHead } from '@vueuse/head'
 import { type GlobalThemeOverrides, darkTheme } from 'naive-ui'
+import Layout from '~/layouts/default.vue'
+import Index from '~/pages/index.vue'
 
 import { isDark } from '~/logic'
 
@@ -36,7 +38,9 @@ onMounted(() => {
     :theme-overrides="overrides"
   >
     <n-global-style />
-    <router-view />
+    <Layout>
+      <Index />
+    </Layout>
   </n-config-provider>
 </template>
 
