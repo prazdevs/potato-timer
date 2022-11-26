@@ -1,7 +1,5 @@
 import usePersistentStopwatch from 'use-persistent-stopwatch'
-import { computed, onMounted, watch } from 'vue'
-
-import type { Ref, ComputedRef } from 'vue'
+import { type ComputedRef, type Ref } from 'vue'
 
 import usePotatoStorage from '~/composables/usePotatoStorage'
 
@@ -33,7 +31,7 @@ export interface Potato {
 function usePotato(): Potato {
   const { elapsed, pause, resume, reset, running } = usePersistentStopwatch(
     'potato',
-    { interval: 1 }
+    { interval: 1 },
   )
 
   const { workTime, pauseTime, longPause } = usePotatoStorage()
@@ -49,55 +47,57 @@ function usePotato(): Potato {
           cur,
           idx === 3 ? cur + longPause.value : cur + pauseTime.value,
         ],
-        []
-      )
+        [],
+      ),
   )
 
   const durations = computed(() =>
     timestamps.value.map((val: number, idx: number, arr: number[]) =>
-      idx ? val - arr[idx - 1] : val
-    )
+      idx ? val - arr[idx - 1] : val,
+    ),
   )
 
   const currentIndex = computed(() =>
     timestamps.value.findIndex((val: number) => {
       return elapsedSeconds.value < val
-    })
+    }),
   )
 
   const currentStep = computed(() =>
     elapsed.value === 0
       ? Step.ready
       : currentIndex.value === -1
-      ? Step.done
-      : currentIndex.value % 2 === 0
-      ? Step.work
-      : Step.pause
+        ? Step.done
+        : currentIndex.value % 2 === 0
+          ? Step.work
+          : Step.pause,
   )
 
   const potatoRunning = computed(
-    () => running.value && [Step.work, Step.pause].includes(currentStep.value)
+    () => running.value && [Step.work, Step.pause].includes(currentStep.value),
   )
 
   const currentDuration = computed(() =>
     currentIndex.value < 0
       ? durations.value[durations.value.length - 1]
-      : durations.value[currentIndex.value]
+      : durations.value[currentIndex.value],
   )
 
   const currentRemaining = computed(() =>
     currentIndex.value < 0
       ? 0
-      : timestamps.value[currentIndex.value] - elapsedSeconds.value
+      : timestamps.value[currentIndex.value] - elapsedSeconds.value,
   )
 
   const currentPercentage = computed(
-    () => 100 - (currentRemaining.value / currentDuration.value) * 100
+    () => 100 - (currentRemaining.value / currentDuration.value) * 100,
   )
 
   function toggle() {
-    if (running.value) pause()
-    else if (currentIndex.value >= 0) resume()
+    if (running.value)
+      pause()
+    else if (currentIndex.value >= 0)
+      resume()
   }
 
   function changeTimes(settings: TimeSettings) {
@@ -108,11 +108,13 @@ function usePotato(): Potato {
   }
 
   onMounted(() => {
-    if (currentIndex.value < 0) pause()
+    if (currentIndex.value < 0)
+      pause()
   })
 
-  watch(currentIndex, v => {
-    if (v < 0) pause()
+  watch(currentIndex, (v) => {
+    if (v < 0)
+      pause()
   })
 
   return {

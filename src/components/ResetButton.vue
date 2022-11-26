@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { OnClickOutside } from '@vueuse/components'
 import { FocusTrap } from 'focus-trap-vue'
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 
-interface Props {
+const props = withDefaults(defineProps<{
   confirm: boolean
   disabled: boolean
-}
-const props = withDefaults(defineProps<Props>(), {
+}>(), {
   disabled: false,
 })
 
@@ -21,7 +18,8 @@ const { t } = useI18n()
 const show = ref(false)
 
 const click = () => {
-  if (props.confirm) show.value = !show.value
+  if (props.confirm)
+    show.value = !show.value
   else emit('click')
 }
 
@@ -82,7 +80,7 @@ const reset = () => {
 
 <style scoped lang="scss">
 .reset-popover {
-  padding: var(--padding);
+  padding: 8px;
   display: flex;
   flex-direction: column;
 

@@ -1,8 +1,5 @@
 import { usePermission } from '@vueuse/core'
-import { watch } from 'vue'
-import { useI18n } from 'vue-i18n'
-
-import type { ComputedRef } from 'vue'
+import { type ComputedRef } from 'vue'
 
 import potatoNap from '~/assets/potatoNap.png'
 import potatoNote from '~/assets/potatoNote.png'
@@ -15,9 +12,9 @@ export default function useNotifier(step: ComputedRef<Step>): void {
 
   watch(step, (next, prev) => {
     if (
-      !window.Notification ||
-      notificationAccess.value !== 'granted' ||
-      prev === Step.ready
+      !window.Notification
+      || notificationAccess.value !== 'granted'
+      || prev === Step.ready
     )
       return
     switch (next) {

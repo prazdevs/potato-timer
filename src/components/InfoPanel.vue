@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { OnClickOutside } from '@vueuse/components'
 import { FocusTrap } from 'focus-trap-vue'
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 import potatoShy from '~/assets/potatoShy.png'
 
@@ -38,7 +36,7 @@ const show = ref(false)
           <n-card class="modal" :segmented="{ content: 'hard' }">
             <template #header>
               <div class="modal-header">
-                <img alt="" :src="potatoShy" />
+                <img alt="" :src="potatoShy">
                 <span>
                   {{ t('info.title') }}
                 </span>

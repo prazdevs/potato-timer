@@ -1,12 +1,13 @@
+import path from 'path'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Vue from '@vitejs/plugin-vue'
-import path from 'path'
-import ViteIconsResolver from 'unplugin-icons/resolver'
-import ViteIcons from 'unplugin-icons/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Icons from 'unplugin-icons/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
-import ViteComponents from 'unplugin-vue-components/vite'
+import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
-import ViteFonts from 'vite-plugin-fonts'
+import Fonts from 'vite-plugin-fonts'
 import Pages from 'vite-plugin-pages'
 import { VitePWA } from 'vite-plugin-pwa'
 import Layouts from 'vite-plugin-vue-layouts'
@@ -21,20 +22,25 @@ export default defineConfig({
     Vue(),
     Pages(),
     Layouts(),
-    ViteComponents({
+    Components({
+      dts: 'src/components.d.ts',
       resolvers: [
         NaiveUiResolver(),
-        ViteIconsResolver({
+        IconsResolver({
           componentPrefix: '',
         }),
       ],
     }),
-    ViteFonts({
+    Fonts({
       google: {
         families: ['Quicksand'],
       },
     }),
-    ViteIcons({}),
+    AutoImport({
+      dts: 'src/auto-imports.d.ts',
+      imports: ['vue', 'vue-i18n', 'vue-router'],
+    }),
+    Icons({}),
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
@@ -65,8 +71,4 @@ export default defineConfig({
       include: [path.resolve(__dirname, 'locales/**')],
     }),
   ],
-  optimizeDeps: {
-    include: ['vue', 'vue-router', '@vueuse/core'],
-    exclude: ['vue-demi'],
-  },
 })

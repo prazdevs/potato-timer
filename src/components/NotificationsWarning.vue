@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { usePermission } from '@vueuse/core'
-import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 import potatoCry from '~/assets/potatoCry.png'
 import potatoNotif from '~/assets/potatoNotif.png'
@@ -26,7 +24,7 @@ function requestPermission() {
   >
     <template #header>
       <div class="alert-header">
-        <img alt="" :src="potatoCry" />
+        <img alt="" :src="potatoCry">
         <span>{{ t('common.incompatibility') }}</span>
       </div>
     </template>
@@ -45,7 +43,7 @@ function requestPermission() {
   >
     <template #header>
       <div class="alert-header">
-        <img alt="" :src="potatoNotif" />
+        <img alt="" :src="potatoNotif">
         <span>{{ t('common.warning') }}</span>
       </div>
     </template>

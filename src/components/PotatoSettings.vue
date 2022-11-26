@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { OnClickOutside } from '@vueuse/components'
 import { FocusTrap } from 'focus-trap-vue'
-import { ref, computed } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 import potatoDetect from '~/assets/potatoDetect.png'
 import usePotatoStorage, {
-  DEFAULT_WORK_TIME,
-  DEFAULT_PAUSE_TIME,
   DEFAULT_LONG_PAUSE,
+  DEFAULT_PAUSE_TIME,
+  DEFAULT_WORK_TIME,
 } from '~/composables/usePotatoStorage'
 
 interface Props {
@@ -20,7 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   (
-    event: 'change-times',
+    event: 'changeTimes',
     payload: { workTime: number; pauseTime: number; longPause: number }
   ): void
 }>()
@@ -42,7 +40,7 @@ const show = computed(() => active.value && !props.disabled)
 
 function save() {
   if (workTime.value > 0 && pauseTime.value > 0 && longPause.value > 0) {
-    emit('change-times', {
+    emit('changeTimes', {
       workTime: workTime.value * 60,
       pauseTime: pauseTime.value * 60,
       longPause: longPause.value * 60,
@@ -92,7 +90,7 @@ function validator(v: number) {
           <n-card class="modal" :segmented="{ content: 'hard' }" size="small">
             <template #header>
               <div class="modal-header">
-                <img alt="" :src="potatoDetect" />
+                <img alt="" :src="potatoDetect">
                 <span>{{ t('settings.title') }}</span>
               </div>
             </template>

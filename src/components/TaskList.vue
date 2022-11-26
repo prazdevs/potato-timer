@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-
-import type { Task } from '~/composables/useTasks'
+import useTasks, { type Task } from '~/composables/useTasks'
 
 import potatoLost from '~/assets/potatoLost.png'
-import useTasks from '~/composables/useTasks'
 
 const { t } = useI18n()
 const tasks = useTasks()
@@ -30,7 +26,7 @@ function addTask() {
   <div class="tasks">
     <n-card class="tasks-list" size="small">
       <div v-if="!tasks.length" class="tasks-empty">
-        <img alt="" :src="potatoLost" />
+        <img alt="" :src="potatoLost">
         <n-element tag="span">
           {{ t('tasks.empty') }}
         </n-element>

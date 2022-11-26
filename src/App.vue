@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { useLocalStorage } from '@vueuse/core'
 import { useHead } from '@vueuse/head'
-import { darkTheme } from 'naive-ui'
-import { onMounted } from 'vue'
-import { useI18n } from 'vue-i18n'
-
-import type { GlobalThemeOverrides } from 'naive-ui'
+import { type GlobalThemeOverrides, darkTheme } from 'naive-ui'
 
 import { isDark } from '~/logic'
 

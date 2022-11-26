@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-
 import useNotifier from '~/composables/useNotifier'
 import usePotato, { Step } from '~/composables/usePotato'
 

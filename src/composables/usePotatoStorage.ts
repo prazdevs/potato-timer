@@ -1,6 +1,5 @@
 import { useLocalStorage } from '@vueuse/core'
-
-import type { Ref } from 'vue'
+import { type Ref } from 'vue'
 
 export const STORAGE_WORK_TIME = 'potato-work-time'
 export const STORAGE_PAUSE_TIME = 'potato-pause-time'
