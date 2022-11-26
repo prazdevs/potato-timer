@@ -19,11 +19,11 @@ const changeLocale = () => {
 </script>
 
 <template>
-  <n-button :aria-label="label" circle size="large" @click="changeLocale">
+  <NButton :aria-label="label" circle size="large" @click="changeLocale">
     <template #icon>
-      <n-icon>
+      <NIcon>
         <carbon-translate />
-      </n-icon>
+      </NIcon>
     </template>
-  </n-button>
+  </NButton>
 </template>

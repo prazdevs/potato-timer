@@ -11,12 +11,12 @@ const label = computed(() =>
 </script>
 
 <template>
-  <n-button :aria-label="label" circle size="large" @click="() => toggleDark()">
+  <NButton :aria-label="label" circle size="large" @click="() => toggleDark()">
     <template #icon>
-      <n-icon>
+      <NIcon>
         <carbon-moon v-if="isDark" />
         <carbon-sun v-else />
-      </n-icon>
+      </NIcon>
     </template>
-  </n-button>
+  </NButton>
 </template>

@@ -62,7 +62,7 @@ function validator(v: number) {
 </script>
 
 <template>
-  <n-button
+  <NButton
     id="settings-button"
     :aria-label="t('settings.title')"
     circle
@@ -72,14 +72,14 @@ function validator(v: number) {
     @click="active = true"
   >
     <template #icon>
-      <n-icon>
+      <NIcon>
         <carbon-settings />
-      </n-icon>
+      </NIcon>
     </template>
-  </n-button>
-  <n-modal :show="show">
-    <on-click-outside @trigger="active = false">
-      <focus-trap
+  </NButton>
+  <NModal :show="show">
+    <OnClickOutside @trigger="active = false">
+      <FocusTrap
         fallback-focus="#settings-button"
         initial-focus="#work-time-input > div > div > div > input"
         :value="show"
@@ -87,7 +87,7 @@ function validator(v: number) {
       >
         <!-- container div needed for focus-trap -->
         <div>
-          <n-card class="modal" :segmented="{ content: 'hard' }" size="small">
+          <NCard class="modal" :segmented="{ content: 'hard' }" size="small">
             <template #header>
               <div class="modal-header">
                 <img alt="" :src="potatoDetect">
@@ -98,7 +98,7 @@ function validator(v: number) {
               <div class="modal-body">
                 <label class="modal-input">
                   {{ t('settings.work-time') }}
-                  <n-input-number
+                  <NInputNumber
                     id="work-time-input"
                     v-model:value="workTime"
                     :step="5"
@@ -107,7 +107,7 @@ function validator(v: number) {
                 </label>
                 <label class="modal-input">
                   {{ t('settings.pause-time') }}
-                  <n-input-number
+                  <NInputNumber
                     v-model:value="pauseTime"
                     :step="5"
                     :validator="validator"
@@ -115,37 +115,37 @@ function validator(v: number) {
                 </label>
                 <label class="modal-input">
                   {{ t('settings.long-pause') }}
-                  <n-input-number
+                  <NInputNumber
                     v-model:value="longPause"
                     :step="5"
                     :validator="validator"
                   />
                 </label>
-                <n-button class="modal-reset" @click="reset">
+                <NButton class="modal-reset" @click="reset">
                   {{ t('settings.reset') }}
-                </n-button>
+                </NButton>
               </div>
             </template>
             <template #action>
               <div class="modal-actions">
-                <n-button
+                <NButton
                   id="cancel-button"
                   size="small"
                   type="default"
                   @click="active = false"
                 >
                   {{ t('settings.cancel') }}
-                </n-button>
-                <n-button size="small" type="success" @click="save">
+                </NButton>
+                <NButton size="small" type="success" @click="save">
                   {{ t('settings.save') }}
-                </n-button>
+                </NButton>
               </div>
             </template>
-          </n-card>
+          </NCard>
         </div>
-      </focus-trap>
-    </on-click-outside>
-  </n-modal>
+      </FocusTrap>
+    </OnClickOutside>
+  </NModal>
 </template>
 
 <style scoped lang="scss">

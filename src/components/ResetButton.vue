@@ -30,9 +30,9 @@ const reset = () => {
 </script>
 
 <template>
-  <n-popover :show="show" :style="{ padding: 0 }" trigger="manual" width="260">
+  <NPopover :show="show" :style="{ padding: 0 }" trigger="manual" width="260">
     <template #trigger>
-      <n-button
+      <NButton
         id="trigger-button"
         :aria-label="t('common.reset')"
         circle
@@ -42,14 +42,14 @@ const reset = () => {
         @click="click"
       >
         <template #icon>
-          <n-icon>
+          <NIcon>
             <carbon-reset />
-          </n-icon>
+          </NIcon>
         </template>
-      </n-button>
+      </NButton>
     </template>
-    <on-click-outside @trigger="show = false">
-      <focus-trap
+    <OnClickOutside @trigger="show = false">
+      <FocusTrap
         v-model="show"
         fallback-focus="#trigger-button"
         initial-focus="#cancel-button"
@@ -60,22 +60,22 @@ const reset = () => {
             {{ t('reset.message') }}
           </div>
           <div class="popover-actions">
-            <n-button
+            <NButton
               id="cancel-button"
               size="small"
               type="default"
               @click="show = false"
             >
               {{ t('reset.cancel') }}
-            </n-button>
-            <n-button size="small" type="error" @click="reset">
+            </NButton>
+            <NButton size="small" type="error" @click="reset">
               {{ t('reset.confirm') }}
-            </n-button>
+            </NButton>
           </div>
         </div>
-      </focus-trap>
-    </on-click-outside>
-  </n-popover>
+      </FocusTrap>
+    </OnClickOutside>
+  </NPopover>
 </template>
 
 <style scoped lang="scss">

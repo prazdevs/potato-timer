@@ -1,8 +1,8 @@
 <template>
   <div class="index-container">
-    <notifications-warning />
-    <potato-timer />
-    <task-list />
+    <NotificationsWarning />
+    <PotatoTimer />
+    <TaskList />
   </div>
 </template>
 

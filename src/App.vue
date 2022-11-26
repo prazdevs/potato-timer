@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useLocalStorage } from '@vueuse/core'
 import { useHead } from '@vueuse/head'
-import { type GlobalThemeOverrides, darkTheme } from 'naive-ui'
+import { type GlobalThemeOverrides, NConfigProvider, NGlobalStyle, darkTheme } from 'naive-ui'
 import Layout from '~/layouts/default.vue'
 import Index from '~/pages/index.vue'
 
@@ -33,15 +33,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <n-config-provider
+  <NConfigProvider
     :theme="isDark ? darkTheme : undefined"
     :theme-overrides="overrides"
   >
-    <n-global-style />
+    <NGlobalStyle />
     <Layout>
       <Index />
     </Layout>
-  </n-config-provider>
+  </NConfigProvider>
 </template>
 
 <style>

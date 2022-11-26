@@ -5,11 +5,11 @@ const { t } = useI18n()
 <template>
   <div class="options">
     <span class="options-title">{{ t('options.title') }}</span>
-    <n-space class="options-buttons">
-      <language-selector />
-      <theme-selector />
-      <info-panel />
-    </n-space>
+    <NSpace class="options-buttons">
+      <LanguageSelector />
+      <ThemeSelector />
+      <InfoPanel />
+    </NSpace>
   </div>
 </template>
 

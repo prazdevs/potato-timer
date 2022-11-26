@@ -18,13 +18,13 @@ useNotifier(currentStep)
 
 <template>
   <div class="potato-timer">
-    <potato-progress
+    <PotatoProgress
       :percentage="currentPercentage"
       :remaining="currentRemaining"
       :step="currentStep"
     />
     <div class="controls">
-      <n-button
+      <NButton
         :aria-label="running ? t('common.pause') : t('common.resume')"
         circle
         :disabled="currentStep === Step.done"
@@ -32,18 +32,18 @@ useNotifier(currentStep)
         @click="toggle"
       >
         <template #icon>
-          <n-icon>
+          <NIcon>
             <carbon-pause v-if="running" />
             <carbon-play v-else />
-          </n-icon>
+          </NIcon>
         </template>
-      </n-button>
-      <reset-button
+      </NButton>
+      <ResetButton
         :confirm="currentStep === Step.work || currentStep === Step.pause"
         :disabled="running || currentStep === Step.ready"
         @click="reset"
       />
-      <potato-settings
+      <PotatoSettings
         :disabled="currentStep !== Step.ready"
         @change-times="changeTimes"
       />

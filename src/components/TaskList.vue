@@ -13,7 +13,6 @@ const taskStyle = (task: Task) => ({
   textDecoration: task.done ? 'line-through' : 'none',
   fontStyle: task.done ? 'italic' : 'normal',
   fontSize: '1rem',
-  height: '18px',
 })
 
 function addTask() {
@@ -24,22 +23,22 @@ function addTask() {
 
 <template>
   <div class="tasks">
-    <n-card class="tasks-list" size="small">
+    <NCard class="tasks-list" size="small">
       <div v-if="!tasks.length" class="tasks-empty">
         <img alt="" :src="potatoLost">
-        <n-element tag="span">
+        <NElement tag="span">
           {{ t('tasks.empty') }}
-        </n-element>
+        </NElement>
       </div>
-      <n-list v-else :style="{ margin: 0 }">
-        <n-list-item v-for="(task, idx) in tasks" :key="idx">
-          <n-checkbox v-model:checked="task.done">
-            <n-ellipsis :style="taskStyle(task)">
+      <NList v-else :style="{ margin: 0 }">
+        <NListItem v-for="(task, idx) in tasks" :key="idx">
+          <NCheckbox v-model:checked="task.done">
+            <NEllipsis :style="taskStyle(task)">
               {{ task.text }}
-            </n-ellipsis>
-          </n-checkbox>
+            </NEllipsis>
+          </NCheckbox>
           <template #suffix>
-            <n-button
+            <NButton
               :aria-label="t('tasks.delete', { task: task.text })"
               circle
               ghost
@@ -49,20 +48,20 @@ function addTask() {
               @click="() => tasks.splice(idx, 1)"
             >
               <template #icon>
-                <n-icon>
+                <NIcon>
                   <carbon-delete />
-                </n-icon>
+                </NIcon>
               </template>
-            </n-button>
+            </NButton>
           </template>
-        </n-list-item>
-      </n-list>
+        </NListItem>
+      </NList>
       <template #action>
         <div class="tasks-actions">
-          <n-input-group>
+          <NInputGroup>
             <label :style="{ width: '100%' }">
               <span class="sr-only">{{ t('tasks.add') }}</span>
-              <n-input
+              <NInput
                 id="add-task"
                 v-model:value="newTask"
                 placeholder
@@ -70,17 +69,17 @@ function addTask() {
                 @keypress.enter="addTask"
               />
             </label>
-            <n-button :aria-label="t('tasks.add')" circle @click="addTask">
+            <NButton :aria-label="t('tasks.add')" circle @click="addTask">
               <template #icon>
-                <n-icon size="large">
+                <NIcon size="large">
                   <carbon-add />
-                </n-icon>
+                </NIcon>
               </template>
-            </n-button>
-          </n-input-group>
+            </NButton>
+          </NInputGroup>
         </div>
       </template>
-    </n-card>
+    </NCard>
   </div>
 </template>
 

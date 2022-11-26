@@ -35,8 +35,8 @@ const remainingTime = computed(() => format(props.remaining * 1000, 'm:ss'))
 </script>
 
 <template>
-  <n-space align="center" vertical>
-    <n-progress
+  <NSpace align="center" vertical>
+    <NProgress
       :color="isDark ? 'white' : 'black'"
       :percentage="percentage"
       processing
@@ -49,11 +49,11 @@ const remainingTime = computed(() => format(props.remaining * 1000, 'm:ss'))
           {{ remainingTime }}
         </div>
       </div>
-    </n-progress>
+    </NProgress>
     <div class="step">
       {{ t(`steps.${step}`) }}
     </div>
-  </n-space>
+  </NSpace>
 </template>
 
 <style scoped>

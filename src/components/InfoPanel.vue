@@ -10,7 +10,7 @@ const show = ref(false)
 </script>
 
 <template>
-  <n-button
+  <NButton
     id="info-button"
     :aria-label="t('options.info')"
     circle
@@ -18,14 +18,14 @@ const show = ref(false)
     @click="show = true"
   >
     <template #icon>
-      <n-icon>
+      <NIcon>
         <carbon-help />
-      </n-icon>
+      </NIcon>
     </template>
-  </n-button>
-  <n-modal :show="show">
-    <on-click-outside @trigger="show = false">
-      <focus-trap
+  </NButton>
+  <NModal :show="show">
+    <OnClickOutside @trigger="show = false">
+      <FocusTrap
         fallback-focus="#info-button"
         initial-focus="#close-button"
         :value="show"
@@ -33,7 +33,7 @@ const show = ref(false)
       >
         <!-- container div needed for focus-trap -->
         <div>
-          <n-card class="modal" :segmented="{ content: 'hard' }">
+          <NCard class="modal" :segmented="{ content: 'hard' }">
             <template #header>
               <div class="modal-header">
                 <img alt="" :src="potatoShy">
@@ -43,7 +43,7 @@ const show = ref(false)
               </div>
             </template>
             <template #header-extra>
-              <n-button
+              <NButton
                 id="close-button"
                 :aria-label="t('common.close')"
                 size="large"
@@ -51,14 +51,14 @@ const show = ref(false)
                 @click="show = false"
               >
                 <template #icon>
-                  <n-icon size="25">
+                  <NIcon size="25">
                     <carbon-close />
-                  </n-icon>
+                  </NIcon>
                 </template>
-              </n-button>
+              </NButton>
             </template>
             <template #default>
-              <n-layout class="modal-body">
+              <NLayout class="modal-body">
                 <div class="content-title">
                   {{ t('info.technique.title') }}
                 </div>
@@ -72,14 +72,14 @@ const show = ref(false)
                     <li>{{ t('info.technique.steps[4]') }}</li>
                   </ol>
                 </div>
-                <n-divider />
+                <NDivider />
                 <div class="content-title">
                   {{ t('info.origin.title') }}
                 </div>
                 <div class="content-body">
                   {{ t('info.origin.content') }}
                 </div>
-                <n-divider />
+                <NDivider />
                 <div class="content-title">
                   {{ t('info.developer.title') }}
                 </div>
@@ -90,43 +90,43 @@ const show = ref(false)
                   tag="div"
                 >
                   <template #contact>
-                    <n-element
+                    <NElement
                       href="https://twitter.com/prazdevs"
                       rel="noreferrer noopener"
                       tag="a"
                       target="_blank"
                     >
                       {{ t('info.developer.contact') }}
-                    </n-element>
+                    </NElement>
                   </template>
                   <template #contribute>
-                    <n-element
+                    <NElement
                       href="https://github.com/prazdevs/potato-timer"
                       rel="noreferrer noopener"
                       tag="a"
                       target="_blank"
                     >
                       {{ t('info.developer.contribute') }}
-                    </n-element>
+                    </NElement>
                   </template>
                   <template #kofi>
-                    <n-element
+                    <NElement
                       href="https://ko-fi.com/prazdevs"
                       rel="noreferrer noopener"
                       tag="a"
                       target="_blank"
                     >
                       {{ t('info.developer.kofi') }}
-                    </n-element>
+                    </NElement>
                   </template>
                 </i18n-t>
-              </n-layout>
+              </NLayout>
             </template>
-          </n-card>
+          </NCard>
         </div>
-      </focus-trap>
-    </on-click-outside>
-  </n-modal>
+      </FocusTrap>
+    </OnClickOutside>
+  </NModal>
 </template>
 
 <style scoped lang="scss">
