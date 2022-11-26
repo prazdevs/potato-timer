@@ -83,6 +83,7 @@ tasks:
   add: Ajouter une tâche
   delete: Supprimer la tâche "{task}"
   empty: Aucune tâche à effectuer.
+timer: Progression de la patate
 theme:
   dark: Sombre
   light: Clair

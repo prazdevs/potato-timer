@@ -108,7 +108,7 @@ function addTask() {
       }
 
       span {
-        color: var(--text-color-3);
+        color: var(--text-color-2);
       }
     }
   }

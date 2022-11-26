@@ -37,6 +37,7 @@ const remainingTime = computed(() => format(props.remaining * 1000, 'm:ss'))
 <template>
   <NSpace align="center" vertical>
     <NProgress
+      :aria-label="t('timer')"
       :color="isDark ? 'white' : 'black'"
       :percentage="percentage"
       processing

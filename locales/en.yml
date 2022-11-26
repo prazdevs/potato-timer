@@ -80,6 +80,7 @@ tasks:
   add: Add task
   delete: Delete task "{task}"
   empty: No task to work on.
+timer: Potato progress
 theme:
   dark: Dark
   light: Light
