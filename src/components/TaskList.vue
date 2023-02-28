@@ -69,7 +69,12 @@ function addTask() {
                 @keypress.enter="addTask"
               />
             </label>
-            <NButton :aria-label="t('tasks.add')" circle @click="addTask">
+            <NButton
+              :aria-label="t('tasks.add')"
+              circle
+              :disabled="!newTask"
+              @click="addTask"
+            >
               <template #icon>
                 <NIcon size="large">
                   <carbon-add />
